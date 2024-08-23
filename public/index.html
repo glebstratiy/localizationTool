@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localization Comparison Tool</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Localization Comparison Tool</h1>
+
+    <div class="container">
+        <div class="platform-selection">
+            <label for="platform">Выберите платформу:</label>
+            <select id="platform" name="platform">
+                <option value="">--Выберите платформу--</option>
+                <option value="ios">iOS</option>
+                <option value="android">Android</option>
+                <option value="web">WEB</option>
+                <option value="desktop">Desktop</option>
+            </select>
+        </div>
+
+        <div class="upload-section" id="upload-section" style="display: none;">
+            <h2>Загрузите файлы</h2>
+            <form id="upload-form">
+                <label for="previous-version">Предыдущая версия:</label>
+                <input type="file" id="previous-version" name="previous-version" accept=".strings,.xml,.js,.properties"><br><br>
+                <label for="current-version">Текущая версия:</label>
+                <input type="file" id="current-version" name="current-version" accept=".strings,.xml,.js,.properties"><br><br>
+                
+                <!-- Flexbox контейнер для кнопки и сообщения -->
+                <div class="button-and-message">
+                    <button type="button" onclick="uploadFiles()">Сравнить</button>
+                    <div id="download-message" style="display: none;">
+                        <p id="download-text"></p>
+                        <a id="download-link" href="#" style="display: none;">Скачать файл с изменениями</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+
+        <div class="actual-keys-section">
+            <h2>Актуальные локализационные ключи</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Платформа</th>
+                            <th>Файл</th>
+                        </tr>
+                    </thead>
+                    <tbody id="actual-keys-list">
+                        <!-- Здесь динамически будут подгружаться актуальные файлы -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

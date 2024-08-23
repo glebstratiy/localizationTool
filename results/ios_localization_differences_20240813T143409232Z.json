@@ -1,0 +1,73 @@
+{
+  "added": {
+    "symbolInfo.ProductType.corporateAction": "Corporate action",
+    "symbolInfo.daysPerMonth": "Days per month",
+    "symbolInfo.daysPerYear": "Days per year",
+    "symbolInfo.daysPerType.actual": "Actual",
+    "order.qtyFilled": "Qty. filled",
+    "tabBar.statement": "Statement",
+    "panel.accounts.accountDetails.DemoOrLive.Contest": "Contest",
+    "panel.accounts.accountDetails.DemoOrLive.Demo": "Demo",
+    "panel.accounts.accountDetails.DemoOrLive.Live": "Live",
+    "panel.accounts.warningMargin": "Warning margin",
+    "event_message_stop_trading_negative_projected_balance": "Stop out was triggered by negative Projected balance.",
+    "event_message_EOD_trailing_drawdown_level_was_reached": "EOD trailing drawdown level was reached.",
+    "alort.state.active": "Active",
+    "alort.state.stopped": "Stopped",
+    "investing.portfolio.menu.positionBalance": "Positions balance",
+    "investing.details.positionsPalance.title": "Positions balance",
+    "account.operation.positionID": "Position ID",
+    "account.operation.tradeID": "Trade ID",
+    "positionsBalance.title": "Positions balance",
+    "positionsBalance.Symbol": "Symbol",
+    "positionsBalance.breakEvenPt": "Break-even",
+    "positionsBalance.grossPL": "Gross P/L",
+    "positionsBalance.currentPrice": "Current price",
+    "positionsBalance.netPositionQty": "Net position qty.",
+    "positionsBalance.longQty": "Long qty.",
+    "positionsBalance.averageLong": "Average long",
+    "positionsBalance.shortQty": "Short qty.",
+    "positionsBalance.averageShort": "Average short",
+    "positionsBalance.grossExposure": "Gross exposure",
+    "positionsBalance.netExposure": "Net exposure",
+    "positionsBalance.positionValue": "Position value",
+    "positionsBalance.totalGrossPL": "Total Gross P/L",
+    "positionsBalance.noPositions": "As of yet there are no positions",
+    "positionsBalance.productType": "Product type",
+    "statement.title": "Statement",
+    "statement.header.operationType": "Operation type",
+    "statement.header.amount": "Amount",
+    "statement.header.account": "Account",
+    "statement.header.instrumentName": "Instrument name",
+    "statement.header.operationID": "Operation ID",
+    "statement.header.quantity": "Quantity",
+    "statement.header.positionID": "Position ID",
+    "statement.header.openPrice": "Open price",
+    "statement.header.closePrice": "Close price",
+    "statement.header.tradeOpeningDate": "Trade opening date",
+    "statement.header.tradeID": "Trade ID",
+    "statement.grouping.All": "All",
+    "statement.grouping.GroupByPositionID": "Group by PositionID",
+    "statement.grouping.GroupByOperationType": "Group by Operation type",
+    "statement.grouping.GroupByAccount": "Group by Account",
+    "statement.grouping.GroupByInstrument": "Group by Instrument",
+    "statement.grouping.GroupByPositionID.format": "Position #%@",
+    "statement.noData": "There is no account history for the selected time frame and filters",
+    "statement.others": "Others"
+  },
+  "removed": {},
+  "changed": {
+    "panel.accounts.marginWarnPercent": {
+      "old": "Margin warning lvl",
+      "new": "Margin warning level"
+    },
+    "alert_instrument_isnt_visible": {
+      "old": "Trading on symbol: \\\"%1$@\\\" is not allowed for account: \\\"%2$@\\\"",
+      "new": "Trading on symbol: \\\"%@\\\" is not allowed for account: \\\"%@\\\""
+    },
+    "additional_verification": {
+      "old": "Additional verification required %@",
+      "new": "Additional verification required (%@)"
+    }
+  }
+}

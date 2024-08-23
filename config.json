@@ -1,0 +1,13 @@
+{
+    "repositories": [
+      {
+        "name": "Repo1",
+        "url": "https://github.com/user/repo1.git",
+        "branch": "main",
+        "path": "localization/Localizable.strings"
+      }
+    ],
+    "last_valid_keys_dir": "./valid_keys",
+    "output_dir": "./output"
+  }
+  
