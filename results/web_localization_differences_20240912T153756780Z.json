@@ -1,0 +1,11 @@
+{
+  "added": {
+    "'alert.specifyOrder.Error': 'Specify order parameters to create an alert with Action": "Place order,",
+    "'alert.specifyAlertType.Error': 'For instruments with the Forex type, it is impossible that \"Alert type": "Volume. Specify another parameter,"
+  },
+  "removed": {
+    "\"alert.specifyOrder.Error\": \"Specify order parameters to create an alert with Action": "Place order,",
+    "\"alert.specifyAlertType.Error\": \"For instruments with the Forex type, it is impossible that \\\"Alert type": "Volume\\. Specify another parameter,"
+  },
+  "changed": {}
+}

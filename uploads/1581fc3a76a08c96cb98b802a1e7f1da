@@ -3,7 +3,7 @@
   TraderEvolution
 
   Created by Lego on 8/28/17.
-  Copyright TraderEvolution Global LTD. В© 2017-2022. All rights reserved.
+  Copyright © 2024 TraderEvolution Global LTD. All rights reserved.
 */
 
 // general
@@ -25,6 +25,7 @@
 "LoginScreen.label.forgot" = "Forgot";
 "LoginScreen.placeholder.password" = "PASSWORD";
 "LoginScreen.btn.signIn" = "Log in";
+"LoginScreen.btn.loginWithVelocity" = "Login with Velocity";
 "LoginScreen.btn.explore" = "Explore now";
 "LoginScreen.btn.live" = "Live";
 "LoginScreen.btn.demo" = "Demo";
@@ -44,6 +45,16 @@
 "LoginScreen.alert.title.passwordConfirm" = "Biometric authentication";
 "LoginScreen.alert.error.passwordConfirm" = "The entered password is incorrect.";
 "LoginScreen.alert.error.bioDataChanged" = "The security settings have been changed on the device. You need to reactivate biometrics to log into the app.";
+"LoginScreen.alert.error.authDisabled" = "It seems that your device does not have a screen lock enabled. In order to improve the app security, we highly recommend that you enable it.";
+
+"LoginScreen.alert.noCAOnThisDevice" = "No CA on this device or the CA is expired. Please apply for a CA.";
+"LoginScreen.CAInfo" = "CA info";
+"LoginScreen.CASerialNumber" = "CA serial number (SN)";
+"LoginScreen.CASubject" = "CA subject";
+"LoginScreen.EffectiveStartDate" = "Effective Start Date";
+"LoginScreen.EffectiveEndDate" = "Effective End Date";
+"LoginScreen.AreYouSureDelete" = "Are you sure you would like to continue with CA deleting?";
+
 
 
 // forgot password
@@ -55,7 +66,9 @@
 "LoginScreen.label.newPassword" = "NEW PASSWORD";
 "LoginScreen.label.confirmPassword" = "CONFIRM PASSWORD";
 
-
+"signIn.error.forbidSymbols" = "Forbid %@";
+"signIn.error.forbidSymbols.space" = " space";
+"signIn.error.maxLengthReached" = "Max length %d is reached";
 "signIn.error.emptyLogin" = "Login field is empty";
 "signIn.error.emptyCustomerNo" = "Customer No field is empty";
 "signIn.error.emptyPassword" = "Password field is empty";
@@ -68,12 +81,14 @@
 // Alerts
 "alert.sentPassLater" = "We sent a letter with a password to your email";
 "alert" = "Alert";
-"alert.ok" = "Ok";
+"alert.ok" = "OK";
 "alert.cancel" = "Cancel";
 "alert.logout" = "Logout";
+"alert.cf.delete" = "Delete";
+"alert.cf.ok" = "OK";
 
 "close.position.lots" = "lot(s)";
-"close.position" = "Close position %@ %@ %@ %@ %@ %@ %@ ?";
+"close.position" = "Close position %@ %@ %@ %@ %@ %@ %@ %@ ?";
 "alert.confirmation.closePosition"="Closing position";
 "alert.confirmation.modifyOrder"="Modifying order";
 "alert.confirmation.cancelOrder"="Canceling order";
@@ -87,6 +102,7 @@
 "alert.biometric.questionNextFaceId" = "Would you like to use Face ID for next authentication?";
 "alert.biometric.tryFaceId" = "Try Face ID";
 "alert.confirm.body.sessionTimeout"="Disable inactivity period.\nI know, understand, and accept the risks associated with disabling the inactivity period.";
+"alert.capitalFutures.IncorrectCertificate" = "Certificate validation error. Error: %d";
 
 "general.traidng.for"="for";
 "general.traidng.orders"="orders";
@@ -107,18 +123,20 @@
 // errors
 "WRONG_LOGIN_OR_PASSWORD" = "User/password combination is not valid.";
 
-// warning aggressive order placement
+// warning order placement
 "warning.order.place.warning" = "Warning: ";
 "warning.limitBuy.aggressive.order.more" = "Limit Buy order price is at or more than market Ask price, order may be filled immediately";
 "warning.limitSell.aggressive.order.less" = "Limit Sell order price is at or less than market Bid price, order may be filled immediately";
 "warning.stopBuy.aggressive.order.less" = "Stop Buy order price is at or less than market Ask price, order may be filled immediately";
 "warning.stopSell.aggressive.order.more" = "Stop Sell order price is at or more than market Bid price, order may be filled immediately";
+"warning.BSE.orderPlacing" = "Security is under Surveillance Measure - %@, please make sure you would like to continue.";
+"warning.NSE.orderPlacing" = "Security is under Surveillance Measure, please make sure you would like to continue.";
 
 //MARK: Limit validation varing
 "warning.limit.lessLast" = "Warning: Limit order price is less than allowable %% from Last price %@, are you sure to submit order?";
 "warning.limit.lessBase" = "Warning: Limit order price is less than allowable %% from Base price %@, are you sure to submit order?";
-"warning.limit.greaterLast" = "Warning: Limit order price is greater than %% from Last price %@, are you sure to submit order?";
-"warning.limit.greaterBase" = "Warning: Limit order price is greater than %% from Base price %@, are you sure to submit order?";
+"warning.limit.greaterLast" = "Warning: Limit order price is greater than allowable %% from Last price %@, are you sure to submit order?";
+"warning.limit.greaterBase" = "Warning: Limit order price is greater than allowable %% from Base price %@, are you sure to submit order?";
 "warning.limit.priceLimits" = "Price limits";
 
 // watchlist
@@ -145,7 +163,7 @@
 "watchlist.label.newList" = "New list %@";
 "watchlist.label.removeList" = "Remove '%@' list?";
 "watchlist.label.nameAlreadyExists" = "Name '%@' already exists";
-"watchlist.label.atLeastOne" = "There are should be at least one list";
+"watchlist.label.atLeastOne" = "There should be at least one list";
 "watchlist.label.rename" = "Rename";
 "watchlist.label.listName" = "List name";
 
@@ -185,9 +203,14 @@
 "watchlist.symbolInfo.vega" = "Vega";
 "watchlist.symbolInfo.theta" = "Theta";
 "watchlist.symbolInfo.rho" = "Rho";
+"watchlist.symbolInfo.pl" = "P/L";
+"watchlist.symbolInfo.intrinsicPl" = "Intrinsic P/L";
+"watchlist.symbolInfo.whatIf" = "What if";
 "watchlist.symbolInfo.strike" = "Strike";
 "watchlist.symbolInfo.availableCash" = "Available cash";
 "watchlist.symbolInfo.availableShares" = "Available shares";
+"watchlist.symbolInfo.funding" = "Funding";
+"watchlist.symbolInfo.countdown" = "Countdown";
 
 "watchlist.allowedOperations.notAllow" = "Not allow";
 "watchlist.allowedOperations.allow" = "Allow";
@@ -279,12 +302,12 @@
 "symbolInfo.PerPhoneTransaction" = "Per phone transaction";
 "symbolInfo.Volume" = "Fill volume";
 "symbolInfo.PerVolume" = "Fill volume, %";
-"symbolInfo.VAT" = "VAT";
 "symbolInfo.VolumeWithMinPD" = "Fill volume with min p\/d, %";
 "symbolInfo.POSTCLOSE" = "Post-market";
 "symbolInfo.SwapBuy" = "Long swap";
 "symbolInfo.SwapSell" = "Short swap";
 "symbolInfo.MarginTier" = "Tier %@";
+"symbolInfo.Margin.Leverage" = "Leverage";
 "symbolInfo.ShortCommissionInfo" = "Сommission info";
 
 "symbolInfo.AddLiqudityRebatePerLot" = "Maker per lot";
@@ -315,11 +338,13 @@
 "symbolInfo.extField.tenderPeriodEndDate" = "Tender period end date";
 "symbolInfo.ProductType.intradayCarryForward" = "Intraday\/Carry forward";
 "symbolInfo.ProductType.intradayDelivery" = "Intraday\/Delivery";
+"symbolInfo.ProductType.corporateAction" = "Corporate action";
 "symbolInfo.Delivered" = "Delivered";
 "symbolInfo.WaitForPrice" = "Wait for price";
 "symbolInfo.Ready" = "Ready";
 "symbolInfo.IndicativeSymbol" = "(Indicative symbol)";
 "symbolInfo.TradingHalt" = "Trading halt";
+"symbolInfo.liquidationOnly" = "Liquidation only";
 "symbolInfo.Open" = "Open";
 "symbolInfo.Physically" = "Physically";
 "symbolInfo.Cash" = "Cash";
@@ -399,6 +424,14 @@
 "symbolInfo.historicalSwapLastUpdatedOn" = "Historical swap last updated on";
 "symbolInfo.points"="points";
 "symbolInfo.etb" = "Shortable";
+"symbolInfo.GSMFlag" = "GSM flag";
+"symbolInfo.ESMFlag" = "ESM flag";
+"symbolInfo.longTermASMFlag" = "Long term ASM flag";
+"symbolInfo.shortTermASMFlag" = "Short term ASM flag";
+"symbolInfo.noDataAvailable" = "No data available";
+"symbolInfo.daysPerMonth" = "Days per month";
+"symbolInfo.daysPerYear" = "Days per year";
+"symbolInfo.daysPerType.actual" = "Actual";
 
 //filter
 "Filter.title" = "Filter";
@@ -409,6 +442,7 @@
 "lookUp.menu.chart" = "Chart";
 "lookUp.cell.notify.added" = "Added to watchlist";
 "lookUp.cell.notify.removed" = "Removed from watchlist";
+"lookUp.cell.notify.limitReached" = "Maximum number reached";
 
 
 //Instrument type
@@ -419,6 +453,8 @@
 "general.instrumentType_futures" = "Futures";
 "general.instrumentType_options" = "Options";
 "general.instrumentType_cfd" = "CFDs";
+"general.instrumentType_equities_cfd" = "Equities CFD";
+"general.instrumentType_futures_cfd" = "Futures CFD";
 "general.instrumentType_forward" = "Forward";
 "general.instrumentType_indices" = "Indices";
 "general.instrumentType_spot" = "Spot";
@@ -429,11 +465,12 @@
 "general.instrumentType_bond" = "Bond";
 "general.instrumentType_tBill" = "T-bill";
 "general.instrumentType_corporate" = "Corporate";
+"general.instrumentType_other" = "Other";
 
 "general.instrumentType.short.forex" = "FX";
 "general.instrumentType.short.cfd" = "CFD";
 "general.instrumentType.short.indices" = "IND";
-"general.instrumentType.short.futures" = "FU";
+"general.instrumentType.short.futures" = "FUT";
 "general.instrumentType.short.forward" = "FW";
 "general.instrumentType.short.options" = "OPT";
 "general.instrumentType.short.crypto" = "CRY";
@@ -458,6 +495,20 @@
 "general.or_type_SL_For" = "S\/L for: %@";
 "general.or_type_TP_For" = "T\/P for: %@";
 "general.or_type_SL_Tr_Stop_For" = "Trailing stop for: %@";
+
+"general.or_type_overview_buy_market" = "Buy %@ at the lowest ask price";
+"general.or_type_overview_sell_market" = "Sell %@ at the highest bid price";
+"general.or_type_overview_buy_limit" = "Buy %@ at a specified price or better";
+"general.or_type_overview_sell_limit" = "Sell %@ at a specified price or better";
+"general.or_type_overview_buy_stop" = "Submit a market buy order once the specified stop price is reached";
+"general.or_type_overview_sell_stop" = "Submit a market sell order once the specified stop price is reached";
+
+"general.or_type_overview_buy_market" = "Buy %@ at the lowest ask price";
+"general.or_type_overview_sell_market" = "Sell %@ at the highest bid price";
+"general.or_type_overview_buy_limit" = "Buy %@ at a specified price or better";
+"general.or_type_overview_sell_limit" = "Sell %@ at a specified price or better";
+"general.or_type_overview_buy_stop" = "Submit a market buy order once the specified stop price is reached";
+"general.or_type_overview_sell_stop" = "Submit a market sell order once the specified stop price is reached";
 
 "general.tif_day" = "Day";
 "general.tif_gtc" = "GTC";
@@ -595,6 +646,7 @@
 "position.currentPrice" = "Current price";
 "position.SLPrice" = "Stop Loss";
 "position.TPPrice" = "Take Profit";
+"position.swaps" = "Swaps";
 "position.fee" = "Fee";
 "position.date" = "Date";
 "position.id" = "Position ID";
@@ -603,6 +655,7 @@
 "position.cell.exercise" = "Exercise";
 "position.cell.cancelExercise" = "Cancel exercise";
 "position.cell.chart" = "Chart";
+"position.cell.mutualClose" = "Mutual close";
 "position.header.Symbol" = "Symbol";
 "position.header.Quantity" = "Quantity";
 "position.header.PL" = "P/L";
@@ -616,6 +669,18 @@
 "position.close.sideLong" = "Long";
 "position.exposure" = "Position exposure";
 "position.orderType" = "Order type";
+"position.leverage" = "Leverage";
+"position.title.mutualClose" = "Mutual close";
+"position.content.mutualClose" = "Close positions mutually for %1$@: \n\n %2$@Total: %3$@%4$@\n\nWould you like to continue?";
+"investing.position.content.mutualClose" = "%1$@Total: %2$@%3$@\n\nWould you like to continue?";
+"position.content.mutualClose.position" = "ID: %1$@, %2$@, %3$@";
+
+// MAM Account operations
+"mamSummary.title" = "MAM summary";
+"mamSummary.noOperations" = "You have no account history for this period.";
+"mamSummary.operationSide.buy" = "Buy";
+"mamSummary.operationSide.sell" = "Sell";
+"mamSummary.widget.errorChanged" = "Widget cannot be changed for managed account";
 
 // Asssets
 "assets.title" = "Assets";
@@ -647,9 +712,11 @@
 "order.Quantity" = "Quantity";
 "order.price" = "Price";
 "order.PL" = "P/L";
+"order.totalNetPL" = "Total profit";
 "order.execType" = "Exec. type";
 "order.fractional.shares" = "Shares";
 "order.fractional.cash" = "Cash";
+"order.leverage" = "Leverage";
 "order.cost" = "Cost";
 "order.estCost" = "Est. cost";
 "order.shares" = "Shares";
@@ -676,6 +743,7 @@
 "order.sold" = "Sold";
 "order.stop" = "Stop price";
 "order.qtyRemaining" = "Qty. remaining";
+"order.qtyFilled" = "Qty. filled";
 "order.slTrSufix"="Tr.";
 "order.status"="Status";
 "order.mamGroupID" = "MAM group ID";
@@ -717,6 +785,7 @@
 "chart.infoWindow.Items.close" = "C:";
 "chart.infoWindow.Items.highMinusLow" = "H-L:";
 
+"chart.title" = "Chart";
 "chart.tool.line" = "Line";
 "chart.tool.bar" = "Bar";
 "chart.tool.candle" = "Candle";
@@ -738,6 +807,8 @@
 "chart.drawings.group.gann" = "Gann drawings";
 "chart.drawings.group.lines" = "Lines drawings";
 "chart.drawings.group.poligon" = "Polygon drawings";
+"chart.drawings.group.prediction" = "Prediction drawings";
+"chart.drawings.group.elliotWaves" = "Elliott Wave drawings";
 
 "chart.tools.andrewPitchfork" = "Andrew's pitchfork";
 "chart.tools.Circle" = "Circle";
@@ -759,6 +830,13 @@
 "chart.tools.Triangle" = "Triangle";
 "chart.tools.vertical" = "Vertical line";
 "chart.tools.StayDrawingMode" = "Stay in drawing mode";
+"chart.tools.shortPosition" = "Short position";
+"chart.tools.longPosition" = "Long position";
+"chart.tools.elliottImpulseWave" = "Elliott Impulse Wave (12345)";
+"chart.tools.elliottCorrectionWave" = "Elliott Correction Wave (ABC)";
+"chart.tools.elliottTriangleWave" = "Elliott Triangle Wave (ABCDE)";
+"chart.tools.elliottTripleComboWave" = "Elliott Triple Combo Wave (WXYXZ)";
+"chart.tools.elliottDoubleComboWave" = "Elliott Double Combo Wave (WXY)";
 
 "chart.menu.tools.price" = "Price";
 "chart.menu.tools.time" = "Time";
@@ -783,6 +861,11 @@
 "chart.spreadType.lineWithPrice" = "Line with price";
 "chart.spreadType.none" = "None";
 "chart.spreadType.title" = "Spread type";
+"chart.mode.title" = "Chart mode";
+"chart.mode.manual" = "Manual";
+"chart.mode.auto" = "Auto";
+"chart.mode.manual.tooltip" = "Double tap the price scale to switch mode to Auto";
+"chart.mode.auto.tooltip" = "Zoom in the price scale to enable manual mode";
 
 //Indicators ";------------------------------------------------------------
 "indicators.startIndex"="Start index:";
@@ -912,6 +995,8 @@
 "settings.showInfoSubscribeUnsubscribe" = "Show information message about subscribe/unsubscribe";
 // Settings Notifications
 "settings.notifications" = "NOTIFICATIONS";
+// enable logging settings mode
+"settings.logging.unable.error" = "Unable to change settings in disconnected mode!";
 
 "panel.newOrderEntry.limitPricePanel" = "Limit price";
 "panel.newOrderEntry.pricePanel" = "Price";
@@ -930,8 +1015,8 @@
 "done" = "Done";
 "settings.offsetType_points" = "Points";
 "settings.offsetType_tick" = "Ticks";
-"settings.drawing.points" = "POINTS";
-"settings.drawing.levels" = "LEVELS";
+"settings.drawing.points" = "Points";
+"settings.drawing.levels" = "Levels";
 "settings.drawing.level" = "Level %d";
 "settings.drawing.mirrorView" = "Mirror view";
 "settings.drawing.ExtendLeft" = "Extend left";
@@ -948,6 +1033,17 @@
 "settings.buySLTriggerPrice" = "Buy SL trigger price";
 "settings.sellSLTriggerPrice" = "Sell SL trigger price";
 "settings.selectSLTPTriggerPriceInOE" = "Select SL/TP trigger price in OE";
+"settings.drawing.position.riskValue" = "Risk value, %";
+"settings.drawing.position.fillProfitLevel" = "Fill Profit level";
+"settings.drawing.position.line" = "Line";
+"settings.drawing.position.calcParamBy" = "Calculate parameters by";
+"settings.drawing.position.qty" = "Qty";
+"settings.drawing.position.showPlaceOrder" = "Show Place order button";
+"settings.drawing.position.showScalesPrice" = "Show prices on Price scale";
+"settings.drawing.position.availableFunds" = "Available  funds";
+"settings.drawing.position.setQty" = "Set qty";
+"settings.drawing.position.fillStopLevel" = "Fill Stop level";
+"settings.drawing.position.fontLabelColors" = "Font Label colors";
 
 
 // tab bar
@@ -963,6 +1059,7 @@
 "tabBar.settings" = "Settings";
 "tabBar.eventLog" = "Event log";
 "tabBar.alort" = "Alerts";
+"tabBar.mostTraded" = "Most traded";
 "tabBar.logOut" = "Log out";
 "tabBar.blocking" = "Blocking";
 "tabBar.timeAndSales" = "Time & Sales";
@@ -978,10 +1075,26 @@
 "tabBar.metrics" = "Metrics";
 "tabBar.products" = "Subscriptions";
 "tabBar.investing" = "Investing";
+"tabBar.MamSummary" = "MAM summary";
+"tabBar.statement" = "Statement";
 
 "confirmation.title" = "Confirmation";
-"confirmation.closeAllPositions" = "Close all positions?";
-"confirmation.closeAllOrders" = "Cancel all orders?";
+"confirmation.cancelAllOrders" = "Are you sure you want to cancel all working orders (%@)?";
+"confirmation.closeAllPositions" = "Are you sure you want to close all currently opened positions (%@)?";
+"confirmation.closeAccount.sendRequest" = "Send request";
+"confirmation.closeAccount.cancelRequest" = "Cancel request";
+"confirmation.closeAccount.request" = "Are you sure you want to close your user account?";
+"confirmation.closeAccount.response" = "Your request has been successfully submitted. The broker will contact you as soon as possible. \n\nPlease, mind that it will not be processed immediately, and you will still be able to use your account. However, once you close your account, it will no longer be available.";
+"confirmation.closeAccount.response.submitted" = "Your request has been successfully submitted. The broker will contact you as soon as possible.";
+"confirmation.closeAccount.response.accepted" = "Your request is accepted. We will complete the necessary actions shortly and the account will be closed.";
+"confirmation.closeAccount.response.rejected" = "Your request is rejected. For more details contact your broker.";
+"confirmation.closeAccount.response.cancelled" = "Your request is cancelled";
+
+"notification.closeAccount.response.submitted" = "Close account request has been submitted";
+"notification.closeAccount.response.accepted" = "Close account request is accepted";
+"notification.closeAccount.response.rejected" = "Close account request is rejected";
+"notification.closeAccount.response.cancelled" = "Close account request is cancelled";
+
 
 "marketOperation.cancel" = "Cancel";
 "marketOperation.title.orderEntry" = "Order entry";
@@ -993,12 +1106,14 @@
 "marketOperation.button.addOrder" = "Add order";
 
 "orderEntry.account" = "Account";
-"orderEntry.symbol" = "SYMBOL";
+"orderEntry.symbol" = "Symbol";
 "orderEntry.quantity" = "Quantity";
 "orderEntry.disclosedQty" = "Disclosed QTY";
 "orderEntry.disclosedQuantity" = "Disclosed Quantity";
 "orderEntry.executionVenue" = "Execution venue";
 "panel.newOrderEntry.typePanel" = "Order type";
+"panel.newOrderEntry.leverage" = "Leverage";
+"panel.newOrderEntry.leverage.value" = "%@ x";
 
 "marketOperation.modify.current_price" = "Current Price";
 "marketOperation.modify.open_price" = "Open price";
@@ -1010,22 +1125,22 @@
 "marketOperation.modify.quantity" = "Quantity";
 "marketOperation.modify.order_type" = "Order type";
 "marketOperation.modify.tif" = "Validity";
-"marketOperation.modify.sl_limit_price" = "STOP LOSS LIMIT PRICE";
-"marketOperation.modify.sl_limit_offset" = "STOP LOSS LIMIT OFFSET";
-"marketOperation.modify.sl_price" = "STOP LOSS PRICE";
-"marketOperation.modify.tp_price" = "TAKE PROFIT PRICE";
-"marketOperation.modify.sl_offset" = "STOP LOSS OFFSET";
-"marketOperation.modify.tp_offset" = "TAKE PROFIT OFFSET";
-"marketOperation.modify.tr_stop" = "TRAILING SL OFFSET";
-"marketOperation.startOfDayQuantity" = "START OF DAY QUANTITY";
-"marketOperation.targetProductType" = "TARGET PRODUCT TYPE";
-"marketOperation.modifyQuantity" = "MODIFY QUANTITY";
+"marketOperation.modify.sl_limit_price" = "Stop loss limit price";
+"marketOperation.modify.sl_limit_offset" = "Stop loss limit offset";
+"marketOperation.modify.sl_price" = "Stop loss price";
+"marketOperation.modify.tp_price" = "Take profit price";
+"marketOperation.modify.sl_offset" = "Stop loss offset";
+"marketOperation.modify.tp_offset" = "Take profit offset";
+"marketOperation.modify.tr_stop" = "Trailing SL offset";
+"marketOperation.startOfDayQuantity" = "Start of day quantity";
+"marketOperation.targetProductType" = "Target product type";
+"marketOperation.modifyQuantity" = "Modify quantity";
 
-"marketOperation.modify.sl_price_simple" = "SL PRICE";
-"marketOperation.modify.tp_price_simple" = "TP PRICE";
-"marketOperation.modify.sl_offset_simple" = "SL OFFSET";
-"marketOperation.modify.tp_offset_simple" = "TP OFFSET";
-"marketOperation.modify.tr_stop_simple" = "TR SL OFFSET";
+"marketOperation.modify.sl_price_simple" = "SL price";
+"marketOperation.modify.tp_price_simple" = "TP price";
+"marketOperation.modify.sl_offset_simple" = "SL offset";
+"marketOperation.modify.tp_offset_simple" = "TP offset";
+"marketOperation.modify.tr_stop_simple" = "Tr SL offset";
 
 "orders.working" = "Working";
 "orders.filled" = "Filled";
@@ -1066,18 +1181,23 @@
 "panel.accounts.accountDetails.RiskManagement.AvailableDayTrades" = "Available day trades";
 "panel.accounts.accountDetails.RiskManagement.FINRADayTraderPattern" = "FINRA Day trader pattern";
 
+"panel.accounts.accountDetails.DemoOrLive.Contest" = "Contest";
+"panel.accounts.accountDetails.DemoOrLive.Demo" = "Demo";
+"panel.accounts.accountDetails.DemoOrLive.Live" = "Live";
+
 "panel.accounts.MarginAvailableReal" = "Margin available";
 "panel.accounts.MarginUsedNew" = "Init. margin req.";
 "panel.accounts.marginUsedPercent" = "Init. margin req., %";
-"panel.accounts.marginWarnPercent" = "Margin warning lvl";
+"panel.accounts.marginWarnPercent" = "Margin warning level";
+"panel.accounts.warningMargin" = "Warning margin";
 "panel.accounts.marginWithoutWaived" = "Initial margin without waived";
 "panel.accounts.marginWarnReq" = "Warn. margin req.";
 "panel.accounts.marginWarnReqPercent" = "Warn. margin req., %";
 "panel.accounts.marginBeforeWarn" = "Margin before warning";
 "panel.accounts.CurBalance" = "Projected balance";
 "panel.accounts.AvailableMargin" = "Available funds";
-"panel.accounts.Positions" = "# Positions";
-"panel.accounts.Orders" = "# Orders";
+"panel.accounts.Positions" = "Open Positions";
+"panel.accounts.Orders" = "Working Orders";
 "panel.accounts.LockedBalance" = "Blocked balance";
 "panel.accounts.Balance" = "Balance";
 "panel.accounts.CashBalance" = "Cash balance";
@@ -1091,7 +1211,11 @@
 "panel.accounts.OptionPremiumReq" = "Option​ ​premium​ ​req.";
 "panel.accounts.stocksLiquidity" = "Stocks liquidity";
 "panel.accounts.todaysNetProfit" = "Today's net profit";
-"panel.accounts.todaysFee" = "Today's Fee";
+"panel.accounts.todaysGrossProfit" = "Today's gross profit";
+"panel.accounts.todaysFee" = "Today's fee";
+"panel.accounts.todaysVolume" = "Today's volume";
+"panel.accounts.todaysTrades" = "Today's trades";
+"panel.accounts.calculating" = "Calculating…";
 "panel.account.projectedBalance" = "Projected balance";
 "panel.account.riskLevel" = "Risk level";
 "panel.account.collateral" = "Collateral";
@@ -1103,7 +1227,10 @@
 "panel.accounts.openGrossPL" = "Open gross P/L";
 "panel.accounts.openNetPL" = "Open net P/L";
 "panel.accounts.openBalance" = "Open balance";
-"panel.accounts.stopOut" = "Stop out";
+"panel.accounts.stopOutValue" = "Stop out value";
+"panel.accounts.stopOutLevel" = "Stop out level";
+"panel.accounts.totalVolumeLimit" = "Total volume limit";
+"panel.accounts.volumeLimit" = "%@ volume limit";
 
 // assetBalances
 "panel.accountDetails.assetBalances.TR_OAL" = "Net Portfolio Value";
@@ -1192,6 +1319,11 @@
 "panel.accountDetails.RicoRisk.DAY_2_CREDITS" = "D2";
 "panel.accountDetails.RicoRisk.TOTL" = "Total";
 
+"panel.accountDetails.group.accountSummary" = "Account summary";
+"panel.accountDetails.group.margin" = "Margin";
+"panel.accountDetails.group.accountActivity" = "Account activity";
+"panel.accountDetails.group.todayResult" = "Today result";
+"panel.accountDetails.group.riskManagement" = "Risk management";
 
 // ToolTips text
 "tooltip.account.riskLevelTooltip" = "Displays how an account is close to portfolio liquidation";
@@ -1205,44 +1337,86 @@
 "INVALID_EMAIL_FOR_THIS_USER" = "Invalid email for this user";
 "WRONG_RECOVERY_KEY" = "Wrong recovery key";
 "PASSWORD_AND_CONFIRMATION_DO_NOT_MATCH" = "Password and confirmation do not match";
-"reports.Send from" = "Send from";
 "account.info.tooltip" = "This function filters your positions and orders by account. Account switches synchronously in all panels";
 
 
 // Report send from (ClientPanelID) ";------------------------------------------------------------
-"reports.POSITIONS_PANEL_DB_CLICK_OR_CONTEXT_MENU" = "Positions panel (double click or from context menu)";
-"reports.POSITIONS_PANEL_HOT_BTN" = "Positions panel (hot buttons)";
-"reports.ORDERS_PANEL_DB_CLICK_OR_CONTEXT_MENU" = "Working orders (double click or from context menu)";
-"reports.ORDERS_PANEL_HOT_BTN" = "Working orders (hot buttons)";
-"reports.OE" = "OE";
-"reports.CHART_OE" = "Chart (build in OE)";
-"reports.CHART_VISUAL"="Chart (visual trading)";
-"reports.OTHER" = "Other";
-"reports.ALORT" = "Alerts";
-"reports.SERVER" = "Server";
-"reports.CLOSE_ALL_ORDERS" = "Cancel all orders";
-"reports.CLOSE_ALL_POSITIONS" = "Close all positions";
-"reports.MARKETDEPTH" = "Market depth";
-"reports.SUPERDOM" = "Matrix";
-"reports.Send from" = "Send from";
-"reports.POSITIONS" = "Positions panel";
-"reports.ORDERS" = "Orders panel";
-"reports.productType" = "Product type";
-"reports.initialProductType" = "Initial product type";
-"reports.targetProductType" = "Target product type";
-"reports.panelID.mobOptionsPanel" = "Mobile options panel";
-// MARK: Panel ID
-"panelID.mobile.chartVisualTrading" = "Mobile: Chart visual trading";
-"panelID.mobile.tradingIdeas" = "Mobile: Trading ideas";
+"panelID.Other" = "Other";
+"panelID.desktop.Other" = "Desktop:Other";
+"panelID.desktop.TableAlert" = "Desktop:Table Alert";
+"panelID.desktop.CustomColumn" = "Desktop:Custom column";
+"panelID.desktop.SDK" = "Desktop:SDK";
+"panelID.desktop.OE" = "Desktop:OE";
+"panelID.desktop.MarketDepth" = "Desktop:Market Depth";
+"panelID.desktop.Matrix" = "Desktop:Matrix";
+"panelID.desktop.ChartOE" = "Desktop:Chart OE";
+"panelID.desktop.ChartVisual" = "Desktop:Chart Visual";
+"panelID.desktop.Positions_HotBtn" = "Desktop:Positions Panel Hot BTN";
+"panelID.desktop.Positions_DC" = "Desktop:Positions Panel DC";
+"panelID.desktop.Orders_HotBtn" = "Desktop:Orders Panel Hot BTN";
+"panelID.desktop.Orders_DC" = "Desktop:Orders Panel DC";
+"panelID.desktop.OptionMaster" = "Desktop:Option Master";
+"panelID.desktop.SavedOrders" = "Desktop:Saved orders";
+"panelID.desktop.Scalper" = "Desktop:Scalper";
+"panelID.desktop.HotBtn" = "Desktop:Hot Button";
+"panelID.desktop.ChartVisual_DC" = "Desktop:Chart Visual DC";
+"panelID.desktop.TradingSystemList" = "Desktop:Trading system list";
+"panelID.desktop.MatrixOE" = "Desktop:Matrix OE";
+"panelID.desktop.MamOE" = "Desktop:Mam OE";
+"panelID.desktop.SuperDOM" = "Desktop:Super Dom";
+"panelID.desktop.SuperDomOE" = "Desktop:Super Dom OE";
+"panelID.desktop.TradingIdeas" = "Desktop:Trading Idea Card";
+"panelID.desktop.PortfolioManager" = "Desktop:Portfolio Manager";
+"panelID.desktop.Positions_CM" = "Desktop:Positions CM";
+"panelID.desktop.WorkingOrders_CM" = "Desktop:Working Orders CM";
+"panelID.desktop.ChartVisual_CM" = "Desktop:Chart Visual CM";
+"panelID.desktop.Alort" = "Desktop:Alert";
+"panelID.web_ChartOE" = "WEB:Chart OE";
+"panelID.web_ChartVisualTrading" = "WEB:Chart Visual";
+"panelID.web_ChartVisualTrading_DC" = "WEB:Chart Visual Trading DC";
+"panelID.web_MarketDepth" = "WEB:Market Depth";
+"panelID.web_OE" = "WEB:OE";
+"panelID.web_OptionMaster" = "WEB:Option Master";
+"panelID.web_OrdersPanel_HotBtn" = "WEB:Orders Panel Hot Buttons";
+"panelID.web_OrdersPanel_DC" = "WEB:Orders Panel DC";
+"panelID.web_PositionsPanel_HotBtn" = "WEB:Positions Panel Hot Buttons";
+"panelID.web_PositionsPanel_DC" = "WEB:Positions Panel DC";
+"panelID.web_PortfolioManager" = "WEB:Portfolio Manager";
+"panelID.web_ChartVisual_CM" = "Web:Chart Visual Trading CM";
+"panelID.web_WorkingOrders_CM" = "WEB:Orders Panel CM";
+"panelID.web_PositionsPanel_CM" = "WEB:Positions Panel CM";
+"panelID.web_Other" = "WEB:Other";
+"panelID.web_Alort" = "WEB:Alert";
+"panelID.mac_Alort" = "MAC:Alert";
+"panelID.mob_ChartOE" = "MOB:Chart OE";
+"panelID.mob_WL_OE" = "MOB:WL OE";
+"panelID.mob_MarketDepth" = "MOB:Market Depth";
+"panelID.mob_Orders_HotBtn" = "MOB:Orders Hot BTN";
+"panelID.mob_Positions_HotBtn" = "MOB:Positions Hot BTN";
+"panelID.mob_TabletChartVisual_HotBtn" = "MOB:Tab Chart Visual Hot BTN";
+"panelID.mob_CancelAllOrders" = "MOB:Cancel all orders";
+"panelID.mob_CancelAllPositions" = "MOB:Close all positions";
+"panelID.mob_Other" = "MOB:Other";
+"panelID.mob_PortfolioManager" = "MOB:Portfolio Manager";
+"panelID.mob_ChartVisualTrading" = "MOB:Chart Visual Trading";
+"panelID.mob_TradingIdeas" = "MOB:Trading Ideas";
+"panelID.mob_Options" = "MOB:Options Panel";
+"panelID.mob_Inv_Chart_OE" = "MOB:Inv. Chart OE";
+"panelID.mob_Inv_WL_Option_OE" = "MOB:Inv. Watchlist Option OE";
+"panelID.mob_Inv_Assets" = "MOB:Inv. Sell assets";
+"panelID.mob_Inv_PositionsIncrease" = "MOB:Inv. Positions increase";
+"panelID.mob_Inv_CancelOrder" = "MOB:Inv. Cancel order";
+"panelID.mob_Inv_ClosePosition" = "MOB:Inv. Close position";
+"panelID.mob_Inv_TradingIdeas" = "MOB:Inv. Trading Ideas";
+"panelID.mob_Inv_Other" = "MOB:Inv. Other";
+"panelID.android_Alort" = "MOB:Alert “Android”";
+"panelID.ios_Alort" = "MOB:Alert “IOS”";
+"panelID.server_CancelAllOrders" = "SERVER:Cancel all orders";
+"panelID.server_CloseAllPositions" = "SERVER:Close all positions";
+"panelID.server_Other" = "SERVER:Other";
+"panelID.server_Rest" = "SERVER:REST";
+"panelID.server_Server" = "Server:Server";
 
-"panelID.mobile.investing.chartOE" = "Mobile(Investing): Chart OE";
-"panelID.mobile.investing.watchlistOptionOE" = "Mobile(Investing): Watchlist Option OE";
-"panelID.mobile.investing.assetsSellAsset" = "Mobile(Investing): Assets Sell asset";
-"panelID.mobile.investing.positionsIncrease" = "Mobile(Investing): Positions increase";
-"panelID.mobile.investing.cancelOrders" = "Mobile(Investing): Cancel orders";
-"panelID.mobile.investing.closePositions" = "Mobile(Investing): Close positions";
-"panelID.mobile.investing.tradingIdeas" = "Mobile(Investing): Trading ideas";
-"panelID.mobile.investing.other" = "Mobile(Investing): Other";
 
 //Events---------------------------------------------
 "Event_new" = "Created";
@@ -1266,7 +1440,10 @@
 "Event_refused" = "Rejected";
 "Event_activated" = "Activated";
 "Event_waitingMarket" = "Waiting market";
-
+"Event_send_from" = "Send from";
+"Event_product_type" = "Product type";
+"Event_initialProductType" = "Initial product type";
+"Event_targetProductType" = "Target product type";
 
 // Event log ";------------------------------------------------------------
 "event_chart_history_data_limit_refused_title" = "Refuse";
@@ -1379,8 +1556,10 @@
 "event_acc_op_custody_commission" = "Custodial";
 "event_acc_op_accured_dividends" = "Accrued Dividends";
 "event_acc_op_dividends_tax" = "Dividends Tax";
+"event_acc_op_funding" = "Funding";
 "event_acc_op_open_option_premium" = "Open option premium";
 "event_acc_op_close_option_premium" = "Close option premium";
+"event_acc_close" = "Close account";
 "event_unknown_account_operation_type" = "Unknown account operation type #";
 "event_Operation_Type"="Operation type";
 "event_Stop_out_type"="Stop out type";
@@ -1402,6 +1581,8 @@
 "event_message_unrealized_loss_limit_was_reached"="Unrealized loss limit was reached";
 "event_message_max_drawdown_limit_reached"="Max drawdown level was reached.";
 "event_message_max_number_or_orders_was_reached"="The maximum number of orders per day has been reached.";
+"event_message_stop_trading_negative_projected_balance" = "Stop out was triggered by negative Projected balance.";
+"event_message_EOD_trailing_drawdown_level_was_reached" = "EOD trailing drawdown level was reached.";
 "event_trading_disabled_title" = "Trading disabled by risk rules";
 "event_trading_central" = "Trading Central error";
 "event_noSecure" = "No secure";
@@ -1424,6 +1605,8 @@
 "event_alort_executed" = "Alert %@ %@ was executed";
 "event_alort_restarted" = "Alert %@ %@ was restarted";
 "event_alort_deleted" = "Alert %@ %@ was deleted";
+
+"event_LackOfMargin" = "Lack of margin";
 
 // LOCAL REJECTS ";------------------------------------------------------------
 "settings.error.sessionTimeout" = "Unable to change setting in disconnected mode!";
@@ -1639,6 +1822,7 @@
 "br_ORD_CANT_CREATED_INSUFFICIENT_SHARES_TO_SHORT" = "Insufficient shares to short, please contact your Trading Rep to borrow more or reduce your order quantity.";
 "br_OPENING_MARKET_ORDERS_ARE_FORBIDDEN" = "Opening market orders are forbidden.";
 "br_ORD_REJECT_BLOCK_INTRADAY_CLOSING" = "Refused: Reason for rejection: Unable to place order due to block day (turnaround) trading";
+"br_CREATE_ALERT_ERROR" = "Unable to create alert. Alerts can only be created for accounts of the logged-in user.";
 "br_PRODUCT_TYPE_MODIFICATON_FORBIDDEN" = "Trading mode modification is forbidden";
 "br_ORD_REJECT_DAY_TRADER_PATTERN_PROTECTION" = "Order can lead to FINRA Day trader pattern rule triggering. Please contact support!";
 "br_SNAPSHOT_REQUEST_LIMIT_REACHED" = "Snapshot requests limit for a user has been reached";
@@ -1656,6 +1840,26 @@
 "br_BID_ASK_PRICES_NOT_AVAILABLE_FOR_INSTRUMENT" = "Bid\/Ask prices are not available for the instrument.";
 "br_IPO_NOT_SUBSCRIBED" = "Please, subscribe to the \"IPO calendar\"";
 "br_DIVIDEND_NOT_SUBSCRIBED" = "Please, subscribe to the \"Dividend calendar\"";
+"br_MARKET_ORDERS_VALIDATION_BY_RICE_LIMITS" = "Market order is forbidden due to no trades occurring during current day.";
+"br_ORDER_REJECTED_DUE_TO_NEGATIVE_PRICE" = "Order cannot be created due to negative price.";
+"br_SPECIFIED_LEVERAGE_DOES_NOT_EXIST" = "Specified leverage doesn't exist.";
+"br_CHPWD_ERROR_NEW_PWD_IS_TOO_COMMON" = "Your password is too common and easy to guess";
+"br_ACCOUNT_ALIAS_ERROR_MAX_LENGTH" = "Alias name is too long, please shorten it to 32 symbols";
+"br_UNPLACED_ORDER_CANNOT_BE_MODIFIED" = "Unplaced order modification is not allowed for this route";
+"br_UNPLACED_ORDER_CANNOT_BE_CANCELED" = "Unplaced order cancellation is not allowed for this route";
+"br_MUTUAL_CLOSE_REQUIREMENTS" = "Selected positions do not match Mutual close requirements";
+"br_ORD_CANT_CREATED_OPEN_POSITION_NOT_ALLOW" = "Only positions closing is allowed. Total sum of opposite orders qty. cannot be greater than position qty";
+"br_PRODUCT_TYPE_MODIFICATION_OPEN_POSITION_NOT_ALLOW" = "Product type cannot be modified because only position closing is allowed. Total sum of opposite orders qty. cannot be greater than position qty";
+"br_ORD_REPLACE_REJECT_NOTHING_TO_CHANGE" = "Reason for rejection: Nothing to change.";
+"br_LIMIT_PRICE_IS_TOO_CLOSE_TO_CURRENT_ASK_PRICE" = "Limit price is too close to current Ask price";
+"br_LIMIT_PRICE_IS_TOO_CLOSE_TO_CURRENT_BID_PRICE" = "Limit price is too close to current Bid price";
+"br_TP_PRICE_IS_TOO_CLOSE_TO_ORDER_PRICE" = "TP price is to close to the order price";
+"br_STOP_PRICE_IS_TOO_CLOSE_TO_CURRENT_ASK_PRICE" = "Stop price is too close to current Ask price";
+"br_STOP_PRICE_IS_TOO_CLOSE_TO_CURRENT_BID_PRICE" = "Stop price is too close to current Bid price";
+"br_SL_PRICE_IS_TOO_CLOSE_TO_ORDER_PRICE" = "SL price is to close to the order price";
+"br_LIMIT_PRICE_IS_TOO_CLOSE_TO_STOP_PRICE" = "Limit price price is too close to Stop price";
+"br_OPTION_EXERCISE_ONLY_ITM" = "Only In-the-money options can be exercised";
+"br_title_OPTION_EXERCISE_ONLY_ITM" = "Position exercise reject";
 
 // Session events ";------------------------------------------------------------
 "WRONG_EMAIL_VERIFICATION" = "Wrong activation code. Please check code on your mail and try again.";
@@ -1740,6 +1944,7 @@
 "property.indicator.endDayTime" = "End day time:";
 
 // Market depth ";------------------------------------------------------------
+"marketDepth.title" = "Market depth";
 "md.size" = "Size";
 "md.price" = "Price";
 "short.order.type.SLLimit" = "SLL";
@@ -1785,60 +1990,15 @@
 "alert_user_closed_for_trading"="Trading is closed for user.";
 "alert_instrument_isnt_visible"="Trading on symbol: \"%@\" is not allowed for account: \"%@\"";
 "alert_trading_is_closed"="Trading is closed.";
+"alert_trading_is_halted"="Trading is halted.";
 "alert_order_types_SLTP_arnt_allowed"="SL\/TP orders are not allowed for this account.";
 "alert_order_types_SLTP_cant_to_position" = "SL/TP orders cannot be set on position";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 "alert_trading_for_cash_delivery_not_allowed"="Trading for symbols with cash delivery is not allowed. Please, change the account.";
 "alert_trading_for_physically_delivery_not_allowed"="Trading for symbols with physical delivery is not allowed. Please, change the account.";
 "alert_market_order_isnt_allowed"="Market order is not allowed for this symbol.";
 "alert_mam_isnt_allowed"="MAM trading is not allowed";
 "alert_none_of_order_types_is_accessible"="None of order types is accessible";
+"alert_max_number_of_chart_indicators"="Maximum number of chart indicators reached";
 "alert_incorrect_account"="Order cannot be created, because account ID is incorrect.";
 "alert_incorrect_symbol"="Order cannot be created, because symbol is forbidden";
 "alert_trading_disabled_by_risk_rules"="Trading disabled by risk rules";
@@ -1855,6 +2015,7 @@
 "alert_protective_order_cannon_be_modified" = "Order cannot be modified";
 "alert_protective_order_cannon_be_canceled" = "Order cannot be canceled";
 "alert_protective_position_SL_TP_cannot_be_set" = "SL/TP cannot be set on position";
+"alert_only_in_the_money_options_can_be_exercised" = "Only In-the-money options can be exercised";
 
 // Trading password
 "tradingPassword.tradingLocked" = "Trading locked";
@@ -1871,18 +2032,20 @@
 
 
 //2nd factor authentification
-"additional_verification" = "Additional verification";
+"additional_verification_title" = "Additional verification required";
+"additional_verification" = "Additional verification required (%@)";
 "type_sms_one_time_pass" = "SMS one-time pass";
 "email_onetime_pass" = "E-mail one-time pass";
 "fixed_pass" = "Fixed pass";
 "a2ft_token" = "Token";
+"a2ft_sms_email_one_time_pass" = "SMS + E-mail one-time pass";
 "VERIFICATION_TITLE" = "SMS verification";
 "ACTIVATION_TITLE" = "Activation";
 "authentication_method"="Authentication method";
 "authentication_method_password"="Please, enter password";
 "authentication_method_SMS"="Please, enter SMS token";
 "authentication_method_HUB"="Please, enter HUB key";
-"VERIFICATION_PLEASE_ENTER_CODE" = "Please, enter your code here";
+"VERIFICATION_PLEASE_ENTER_CODE" = "Please enter your OTP here";
 
 "authentification_need_activation" = "Need activation";
 "authentification_activation_title" = "Activation code (sent to your mail)";
@@ -1918,6 +2081,10 @@ Please, contact your broker support team.";
 "account.deposit" = "Deposit";
 "account.backToTradingApp" = "Back to trading app";
 "account.myPortfolio" = "My portfolio";
+"account.cancelAllOrders" = "Cancel all orders";
+"account.closeAllPositions" = "Close all positions";
+"account.closeAccount" = "Close account";
+"account.title" = "Account details";
 
 // withdrawal
 "title.asset" = "Asset";
@@ -1950,7 +2117,8 @@ Please, contact your broker support team.";
 "changePassword.noneAndMinLength" = "The new password should contain at least %d characters and shouldn't contain a character (&). Please try again.";
 "changePassword.registerAndMinLength" = "The new password should have at least %d characters, 1 upper case character, 1 lower case character, 1 number and shouldn't contain a character (&). Please try again.";
 "changePassword.specialAndMinLength" = "The new password should have at least %d characters, 1 upper case character, 1 lower case character, 1 number, 1 special character(e.g.@#$%%) and shouldn't contain a character (&). Please try again.";
-
+"password.maxLength" = "Your password can be up to %d characters long";
+"password.isTooCommon" = "Your password is too common and easy to guess";
 "Login_incorrect_version_of_client"="Current version %@ of the application is no longer compatible with the server version. To continue working with the application, please, perform a mandatory update from App Store.";
 
 
@@ -2001,6 +2169,10 @@ Please, contact your broker support team.";
 "tradingCentral.tradingTools" = "Trading tools";
 "tradingCentral.autochartist" = "Autochartist";
 "tradingCentral.noDataAvailable" = "No data available";
+
+"videoLink.title" = "Video";
+"videoLink.noDataAvailable" = "Your video library is empty";
+"videoLink.title.now" = "Now";
 
 "aboutApp.appVersion" = "App version";
 "aboutApp.dateOfBuild" = "Date of build";
@@ -2114,6 +2286,7 @@ Please, contact your broker support team.";
 "alort.condition.less" = "Less";
 "alort.condition.greatEq" = "Greater or equal";
 "alort.condition.lessEq" = "Less or equal";
+"alort.account.for" = "for %@";
 "alort.notify.popup" = "Pop-up";
 "alort.notify.sound" = "Sound";
 "alort.notify.email" = "Email";
@@ -2130,7 +2303,7 @@ Please, contact your broker support team.";
 "alort.condition.title" = "Condition";
 "alort.title.action" = "Action";
 "alort.title.notify" = "Notification Type";
-"alort.title.parametrs" = "Order parametrs";
+"alort.title.parametrs" = "Order parameters";
 "alort.title.type" = "Alert Type";
 "alort.title.condition" = "Condition";
 "alort.title.value" = "Value";
@@ -2147,6 +2320,7 @@ Please, contact your broker support team.";
 "alort.symbolInfo.last" = "Last";
 "alort.symbolInfo.change" = "Change";
 "alort.symbolInfo.volume" = "Volume";
+"alort.symbolInfo.ticks" = "Ticks";
 "alort.order.message" = "The order <%@> has been sent";
 "alort.validity.type" = "For instruments with the Forex type, it is impossible that \"Alert type = Volume\". Specify another parameter";
 "alort.validity.message" = "The field must not be empty";
@@ -2157,6 +2331,8 @@ Please, contact your broker support team.";
 "alort.notifyWithPO.error" = "Specify order parameters to create an alert with Action = Place order";
 "alort.expiration.error" = "Expiration date less then current time";
 "alort.type.noPrice.error" = "No price for current Alert type";
+"alort.state.active" = "Active";
+"alort.state.stopped" = "Stopped";
 
 "login.jbConfirmation" = "Your device appears to be jailbroken. This may cause security issues, bugs, crashes, losing data, or other unpredictable behavior. Accept, and continue using the application?";
 "login.jbAlert" = "Connection is not allowed as your device appears to be jailbroken. This may cause security issues, bugs, crashes, losing data, or other unpredictable behavior";
@@ -2243,6 +2419,7 @@ Please, contact your broker support team.";
 "products.tooltip.nonProPrice" = "Non-pro price:";
 "products.tooltip.proPrice" = "Pro price:";
 "products.subscriptionFailure" = "Product subscription failure";
+"products.notification.subscription" = "Subscription";
 "products.request.secondaryWarning" = "Warning: As soon as the request is processed, you will be unsubscribed immediately, without waiting for the end of the period for which the fee was charged.";
 "products.popup.item.all" = "All";
 "products.popup.item.subscribed" = "Subscribed";
@@ -2279,13 +2456,82 @@ Please, contact your broker support team.";
 "optionchain.chart.expiry" = "Expiry: %@";
 "optionchain.noDataAvailable" = "No data available";
 "optionchain.noStrike" = "No strike";
+"optionchain.legsInStrategy" = "%@ Leg(s) in strategy";
+"optionchain.orderSetting" = "Order setting";
+"optionchain.placeStrategy" = "Place strategy";
+"optionchain.account" = "Account";
+"optionchain.legs" = "Legs";
+"optionchain.addUnderlier" = "Add underlier";
+"optionchain.removeUnderlier" = "Remove underlier";
+"optionchain.orderEntry" = "Order entry";
+"optionchain.legsShouldBeSelected" = "Legs should be selected";
+"optionchain.profilePerformance" = "Profile performance";
+"optionchain.strategyTitle" = "Analyzer";
+"investing.optionchain.potentialGain" = "Potential gain";
+"investing.optionchain.potentialLoss" = "Potential loss";
+"optionchain.strategy.single" = "Single Option";
+"optionchain.strategy.coveredStock" = "Covered stock";
+"optionchain.strategy.verticalSpread" = "Vertical Spread";
+"optionchain.strategy.straddle" = "Straddle";
+"optionchain.strategy.strangle" = "Strangle";
+"optionchain.strategy.butterfly" = "Butterfly";
+"optionchain.strategy.condor" = "Condor";
+"optionchain.strategy.collar" = "Collar";
+"optionchain.strategy.ironButterfly" = "Iron Butterfly";
+"optionchain.strategy.ironCondor" = "Iron Condor";
+"optionchain.strategy.calendar" = "Calendar";
+"optionchain.strategy.custom" = "Custom";
+"optionchain.strategy.call" = "Call";
+"optionchain.strategy.put" = "Put";
+"optionchain.strategy.buy" = "Buy ↑";
+"optionchain.strategy.sell" = "Sell ↓";
+"optionchain.strategy.error.noLast" = "No underlying asset price available for the selected instrument. Please ensure that the underlying asset's price data is accessible and up to date before proceeding with the options strategy.";
+"optionchain.strategy.error.noEnaughtData" = "Cannot find suitable multi-legs";
+"optionchain.strategy.strategyPL" = "Strategy P/L";
+"optionchain.strategy.strikePrice" = "Strike price";
+"optionchain.strategy.breakevenPoint" = "Breakeven point";
+"optionchain.strategy.profit" = "Profit";
+"optionchain.strategy.loss" = "Loss";
+"optionchain.strategy.currentPrice" = "Current price";
+"optionchain.strategy.single.description" = "A single-leg option is a basic strategy to buy or sell a call/ put option. Depending on the side of a trade, there are four types of single-leg options: long calls, long puts, short calls, and short puts.
+
+Long calls and short puts are bullish strategies, whereas long puts and short calls are bearish strategies.";
+"optionchain.strategy.coveredStock.description" = "The covered stock strategy combines a stock position with a corresponding option contract.";
+"optionchain.strategy.verticalSpread.description" = "The vertical strategy refers to buying and selling two options with different strike prices at the same time, both of which have the same underlying stock, option type (call or put), and expiry date.";
+"optionchain.strategy.straddle.description" = "The straddle strategy refers to holding both a call and a put with the same strike price, expiry date, and underlying stock.
+
+When you are anticipating a swing in stock price (either a substantial rise or fall), you can profit from long straddle if your judgment proves to be true; when you judge that the price of the underlying stock will experience little or no fluctuations, you can profit from short straddle.";
+"optionchain.strategy.strangle.description" = "The strangle strategy refers to holding both a call and a put with different strike prices but the same expiry date and underlying stock.
+
+When you are anticipating a swing in stock price (either a substantial rise or fall), you can profit from a long strangle if your judgment proves to be true; when you judge that the price of the underlying stock will experience little or no fluctuations, you can profit from short strangle.";
+"optionchain.strategy.butterfly.description" = "The butterfly strategy refers to holding either three calls or three puts at the same time. The option number ratio is 1:2: 1, and the corresponding strike price spreads are equal. The three options have the same underlying stocks and expiry date.
+
+The butterfly strategy profits from predicting stock price fluctuations. When you are holding a neutral view on the underlying stock, you can profit from long butterfly if your judgment proves to be true; when you are anticipating a swing in stock price (either a substantial rise or fall), you can profit from short butterfly.";
+"optionchain.strategy.condor.description" = "The condor strategy refers to holding either four calls or four puts at the same time. The option number ratio is 1:1:1 :1, and the corresponding strike price spreads are equal. The four options have the same underlying stocks and expiry date.
+
+The condor strategy profits from predicting stock price fluctuations. When you hold a neutral view on the underlying stock, you can profit from a long condor if your judgment proves to be true; when you anticipate a stock price swing (either a substantial rise or fall), you can profit from a short condor.";
+"optionchain.strategy.collar.description" = "The collar strategy, also called a hedge wrapper, is an options strategy implemented to limit both large gains and losses.
+
+The strategy can help protect gains against downside moves in stock price. You may consider using a collar if you have substantial unrealized gains on the long stock position or if you are bullish on the stock over the long term, but are unsure of its shorter-term prospects.";
+"optionchain.strategy.ironButterfly.description" = "An iron butterfly strategy is to simultaneously hold two call options and two put options of the same underlying stock, same expiration date, and same strike distance, with a ratio of 1:1:1:1.
+
+An iron butterfly strategy aims to make a profit by predicting price volatility. When you are neutral on a stock, you may profit from a short iron butterfly strategy.
+
+Conversely, if you expect huge swings in stock, you can use a long iron butterfly strategy to make a profit.";
+"optionchain.strategy.ironCondor.description" = "An iron condor strategy is to simultaneously hold two call options and two put options of the same underlying stock, same expiration date, and same strike distance, with a ratio of 1:1:1:1.
+
+An iron condor strategy aims to make a profit by predicting price volatility. When you are neutral on a stock, you may profit from a short iron condor strategy. 
+Conversely, if you expect huge swings in stock, you can use a long iron condor strategy to make a profit.";
+"optionchain.strategy.calendar.description" = "The calendar options strategy consists of purchasing a call option long-term and selling a call option short-term derived from the same financial instrument with the same exercise price but a different expiration date.";
+"optionchain.strategy.custom.description" = "A custom strategy means that you can choose any options with different expiration dates to form a multi-Leg options strategy.";
+
 
 //DATA SOURCE WIDGET
 "dsw.info.delayed" = "Delayed data";
 "dsw.error.notConfigured" = "Instrument data source is not configured in the Product definitions";
 "dsw.error.notAllowRoute" = "Data source data is not allowed for the trade route";
 "dsw.error.noAllowInstrument" = "Data source data is not allowed for this instrument";
-"dsw.warning.delay.15min" = "SSE and SZSE market price quotes are at least 15 minutes delayed";
+"dsw.warning.delay.15min" = "Data is at least 15 minutes delayed";
 "dsw.title.dataSource" = "Data source";
 "dsw.title.last" = "Last";
 "dsw.title.bid" = "Bid";
@@ -2305,6 +2551,15 @@ Please, contact your broker support team.";
 "algorithm.marketConsensus.cell.chart" = "Chart";
 "algorithm.marketConsensus.noData" = "Waiting for a data";
 
+// MOST TRADED
+"algorithm.mostTraded.title" = "Most traded";
+"algorithm.mostTraded.tooltip" = "The list of stocks with trending trades at a quick glance";
+"algorithm.mostTraded.noData" = "Most traded data is temporarily unavailable";
+"algorithm.mostTraded.cell.add" = "Add";
+"algorithm.mostTraded.cell.remove" = "Remove";
+"algorithm.mostTraded.cell.orderEntry" = "Order entry";
+"algorithm.mostTraded.cell.chart" = "Chart";
+
 // Investing workspace
 "investing.tabBar.portfolio" = "Portfolio";
 "investing.tabBar.watchlist" = "Watchlist";
@@ -2312,10 +2567,12 @@ Please, contact your broker support team.";
 "investing.tabBar.more" = "More";
 "investing.tabBar.more.segment.investing" = "Investing";
 "investing.tabBar.more.segment.activeTrading" = "Active trading";
+"investing.tabBar.MamSummary" = "MAM summary";
 
 "investing.header.pendingCash" = "Pending cash";
 "investing.header.openPnL" = "Open PnL";
 "investing.header.availableCash" = "Available cash";
+"investing.header.balance" = "Balance";
 "investing.header.potentialGain" = "Potential gain";
 "investing.header.potentialLoss" = "Potential loss";
 
@@ -2323,6 +2580,7 @@ Please, contact your broker support team.";
 "investing.portfolio.showMore" = "Show more (@%)";
 
 "investing.portfolio.menu.positions" = "Positions";
+"investing.portfolio.menu.positionBalance" = "Positions balance";
 "investing.portfolio.menu.assets" = "Assets";
 "investing.portfolio.menu.orders" = "Orders";
 "investing.portfolio.menu.operations" = "Operations";
@@ -2332,7 +2590,6 @@ Please, contact your broker support team.";
 "investing.portfolio.positions.header.profit" = "Profit";
 
 // Investing watchlist
-"investing.watchlist.title" = "Watchlist";
 "investing.watchlist.header.search" = "Search";
 "investing.watchlist.header.symbol" = "Symbol";
 "investing.watchlist.header.last" = "Last";
@@ -2362,7 +2619,7 @@ Please, contact your broker support team.";
 "investing.discover.noData.topLosers" = "Top losers data is temporarily unavailable";
 "investing.discover.noData.topHigh" = "“High” price is temporarily unavailable";
 "investing.discover.noData.topLow" = "“Low” price is temporarily unavailable";
-"investing.discover.noData.mostViewed" = "Most viewed data is temporarily unavailable";
+"investing.discover.noData.mostTraded" = "Most traded data is temporarily unavailable";
 "investing.discover.noData.topVolume" = "Top volume data is temporarily unavailable";
 "investing.discover.noData.topLong" = "Top long data is temporarily unavailable";
 "investing.discover.noData.topShort" = "Top short data is temporarily unavailable";
@@ -2371,7 +2628,7 @@ Please, contact your broker support team.";
 "investing.discover.title.topLosers" = "Top losers";
 "investing.discover.title.topHigh" = "High";
 "investing.discover.title.topLow" = "Low";
-"investing.discover.title.topViewed" = "Most viewed";
+"investing.discover.title.topTraded" = "Most traded";
 "investing.discover.title.topVolume" = "Top volume";
 "investing.discover.title.topLong" = "Top long";
 "investing.discover.title.topShort" = "Top short";
@@ -2383,7 +2640,7 @@ Please, contact your broker support team.";
 "investing.discover.tooltip.topLosers" = "Stocks that have lost the most value.";
 "investing.discover.tooltip.topHigh" = "Stocks that have reached their daily high.";
 "investing.discover.tooltip.topLow" = "Stocks that have reached their daily low.";
-"investing.discover.tooltip.topViewed" = "The most active viewed stocks.";
+"investing.discover.tooltip.topTraded" = "The list of stocks with trending trades at a quick glance.";
 "investing.discover.tooltip.topVolume" = "The list of stocks with the highest trading volume at a quick glance.";
 "investing.discover.tooltip.topLong" = "The list of instruments for which there was open the largest number of long positions.";
 "investing.discover.tooltip.topShort" = "The list of instruments for which there was open the largest number of short positions.";
@@ -2405,6 +2662,7 @@ Please, contact your broker support team.";
 "investing.discover.listingDate" = "Listing date";
 "investing.discover.change" = "Change";
 "investing.discover.volume" = "Volume";
+"investing.discover.trades" = "Trades";
 "investing.discover.exchange" = "Exchange name";
 "investing.discover.initialPrice" = "Initial price";
 "investing.discover.firstDayChange" = "First day change";
@@ -2428,11 +2686,13 @@ Please, contact your broker support team.";
 "investing.header.dt.description.filled.begin" = "Your %@ order to %@";
 "investing.header.dt.description.filled.end" = "of %@ has been completed!";
 "investing.header.dt.description.rejected" = "Your %@ order to %@ of %@ has been rejected!";
-"investing.body.dt.title.comment" = "Comment";
 "investing.body.dt.value.refused" = "Order refused by external feed: Not enough offer";
 "investing.body.dt.title.limit" = "Limit price";
 "investing.body.dt.title.market" = "Market price";
+"investing.body.dt.title.stop" = "Stop price";
 "investing.body.dt.value.commission" = "Free";
+"investing.header.dt.description.createIdeas" = "Trading idea for %@ %@ has been placed as an order successfully! Check your order in the portfolio.";
+"investing.header.dt.description.filledIdeas" = "Trading idea for %@ %@ has been completed! Check your position in the portfolio.";
 
 // Investing market operation
 "investing.mo.error.notAllowedRules" = "Current screen is not allowed in rules set";
@@ -2448,6 +2708,7 @@ Please, contact your broker support team.";
 "investing.mo.cash.error.orderType" = "When you use cash, you must select the Market order type";
 "investing.mo.subtitle.setQuantity" = "Set quantity";
 "investing.mo.subtitle.setLimitPrice" = "Set limit price";
+"investing.mo.subtitle.setStopPrice" = "Set stop price";
 "investing.mo.button.buy" = "Buy";
 "investing.mo.button.sell" = "Sell";
 "investing.mo.dynTitle.fees" = "Fees";
@@ -2468,6 +2729,8 @@ Please, contact your broker support team.";
 "investing.mo.units.setCash" = "Set cash";
 "investing.mo.error.notEnoughMargin" = "Not enough margin %@ for creating order";
 "investing.mo.dynTitle.last" = "Last price";
+"investing.mo.leverage" = "Leverage";
+"investing.mo.leverage.value" = "%@ x";
 
 "investing.menu.investing" = "Investing";
 "investing.menu.logout" = "Log out";
@@ -2480,6 +2743,7 @@ Please, contact your broker support team.";
 "investing.cancel" = "Cancel";
 "investing.done" = "Done";
 "investing.next" = "Next";
+"investing.modify.btn.ok" = "OK";
 
 "investing.confirmation.title.closePosition" = "Close position";
 "investing.confirmation.content.closePosition" = "Close position %@%@ %@ %@?";
@@ -2498,7 +2762,7 @@ Please, contact your broker support team.";
 "investing.confirmation.button.closePosition" = "Close position";
 "investing.confirmation.button.exercisePosition" = "Exercise position";
 "investing.confirmation.button.closeExercise" = "Cancel exercise";
-
+"investing.popup.title.orderType" = "Select order type";
 
 
 "investing.placeholder.noDataToDisplay" = "No data to display";
@@ -2509,8 +2773,8 @@ Please, contact your broker support team.";
 "investing.pieLegend.showmore" = "Show more(+%@)";
 "investing.pie.bottom.template" = "in %@";
 
-"investing.tryToReconnect" = "Try to reconnect";
-"investing.internetConnected" = "Internet connected";
+"investing.tryToReconnect" = "Reconnecting";
+"investing.internetConnected" = "Connected";
 
 "investing.tradingPassword" = "Trading password";
 "investing.tradingPassword.placeholder" = "Please enter your password";
@@ -2525,6 +2789,7 @@ Please, contact your broker support team.";
 "investing.details.operation.title" = "Operation details";
 "investing.details.IPO.title" = "IPO details";
 "investing.details.dividends.title" = "Dividend details";
+"investing.details.positionsPalance.title" = "Positions balance";
 "investing.info.title" = "Info";
 "investing.news.title" = "News";
 "investing.notifications.title" = "Notifications";
@@ -2537,28 +2802,32 @@ Please, contact your broker support team.";
 "investing.settings.title" = "Settings";
 "investing.portfolio.title" = "Investing";
 "investing.watchlist.title" = "Watchlist";
+"investing.MamSummary.title" = "MAM summary";
 
 "symbolInfo.pieType.cash" = "Cash";
 
+"account.operation.accountName" = "Account";
 "account.operation.type" = "Operation type";
 "account.operation.date" = "Create date";
 "account.operation.value" = "Value";
+"account.operation.amount" = "Amount";
 "account.operation.operationID" = "Operation ID";
 "account.operation.openPrice" = "Open price";
 "account.operation.closePrice" = "Close price";
 "account.operation.tradeOpeningDate" = "Trade opening date";
 "account.operation.quantity" = "Quantity";
 "account.operation.rate" = "Foreign exchange rate";
-"account.operation.instrumentName" = "Instrument name";
+"account.operation.instrumentName" = "Symbol";
 "account.operation.valueDate" = "Value date";
+"account.operation.currencyName" = "Currency";
+"account.operation.tradeSide" = "Side";
+"account.operation.positionID" = "Position ID";
+"account.operation.tradeID" = "Trade ID";
 
 "investing.tradingIdeas.title" = "Trading ideas";
-
 "investing.tabletNotAllowed" = "Tablet version is not allowed. Please try the mobile version";
 "investing.clientTypeNotAllowed" = "This client type is not allowed for user";
-
 "investing.pleaseLoginToStartInvesting" = "Please, log in to start investing";
-
 "investing.more.title" = "More";
 "investing.tools.title" = "Tools";
 
@@ -2579,6 +2848,8 @@ Please, contact your broker support team.";
 "common.calendar.month"= "Month to yesterday";
 "common.calendar.currentWeekFuture" = "Current week";
 "common.calendar.next30Days" = "Next 30 days";
+"common.calendar.weekToDate" = "Week to date";
+"common.calendar.monthToDate" = "Month to date";
 
 "investing.tabletNotAllowed" = "Tablet version is not allowed. Please try the mobile version";
 "investing.clientTypeNotAllowed" = "This client type is not allowed for user";
@@ -2623,6 +2894,7 @@ Please, contact your broker support team.";
 "common.accountOperation.blocking" = "Blocking";
 "common.accountOperation.unblocking" = "Unblocking";
 "common.accountOperation.transfer" = "Transfer";
+"common.accountOperation.funding" = "Funding";
 
 "investing.dividend.instrumentName" = "Symbol";
 "investing.dividend.perShare" = "Per share";
@@ -2641,3 +2913,146 @@ Please, contact your broker support team.";
 
 "slTpTrigger.type.ask" = "Ask";
 "slTpTrigger.type.bid" = "Bid";
+
+
+"shortLongPositionDrawing.profit" = "Profit:";
+"shortLongPositionDrawing.amount" = "Amount:";
+"shortLongPositionDrawing.pl" = "P/L:";
+"shortLongPositionDrawing.qty" = "Qty:";
+"shortLongPositionDrawing.riskRewardRatio" = "Risk/Reward Ratio:";
+"shortLongPositionDrawing.stop" = "Stop:";
+
+"delayed.tooltip" = "Delayed for %@ minutes";
+
+"heatmap.title" = "Heatmap";
+"heatmap.emptyPlaceholder" = "Heatmap data is temporarily unavailable";
+"heatmap.tooltip" = "The stocks heatmap panel provides a quick and easy way for investors and traders to analyze and visualize stock market data. Pinch to zoom or tap a map for more info.";
+
+
+// GSMFlag
+// bse exchange
+"scripsInGSM" = "Scrips in GSM";
+"stage1GSMScrip" = "Stage 1 GSM scrip";
+"stage2GSMScrip" = "Stage 2 GSM scrip";
+"stage3GSMScrip" = "Stage 3 GSM scrip";
+"stage4GSMScrip" = "Stage 4 GSM scrip";
+"stage1GSMScripAsPerNotice" = "Stage 1 GSM scrip as per notice no. 20170807-31";
+"stage1ESMScrip" = "Stage 1 ESM scrip";
+"stage2ESMScrip" = "Stage 2 ESM scrip";
+// nse exchange
+"shortlistedUnderGSM" = "Shortlisted under GSM";
+"gsmStage1" = "GSM stage 1";
+"gsmStage2" = "GSM stage 2";
+"gsmStage3" = "GSM stage 3";
+"gsmStage4" = "GSM stage 4";
+"gsmStage5" = "GSM stage 5";
+"gsmStage6" = "GSM stage 6";
+"stasmStage1" = "STASM stage 1";
+"stasmStage2" = "STASM stage 2";
+"ltasmStage1" = "LTASM stage 1";
+"ltasmStage2" = "LTASM stage 2";
+"ltasmStage3" = "LTASM stage 3";
+"ltasmStage4" = "LTASM stage 4";
+"ibcReceipt" = "IBC receipt";
+"asmIbcStage1" = "ASM IBC stage 1";
+"asmIbcStage2" = "ASM IBC stage 2";
+"asmIcaStage1" = "ASM ICA stage 1";
+"asmIcaStage2" = "ASM ICA stage 2";
+"highPromoterEncumbrance" = "High promoter encumbrance";
+"highNonPromoterEncumbrance" = "High/Non promoter encumbrance";
+"smsInfoList" = "SMS info. list";
+"smsWatchList" = "SMS watch list";
+"unsolicitedVideo" = "Unsolicited video";
+"unsolicitedVideoAndLtasmSt4" = "Unsolicited video and LTASM st. 4";
+"esmStage1" = "ESM stage 1";
+"esmStage2" = "ESM stage 2";
+"esm1AndGsm0" = "ESM 1 and GSM 0";
+"esm2AndGsm0" = "ESM 2 and GSM 0";
+"ltasm1AndGsm0" = "LTASM 1 and GSM 0";
+"ltasm2AndGsm0" = "LTASM 2 and GSM 0";
+"ltasm3AndGsm0" = "LTASM 3 and GSM 0";
+"ltasm4AndGsm0" = "LTASM 4 and GSM 0";
+"stasm1AndGsm0" = "STASM 1 and GSM 0";
+"stasm2AndGsm0" = "STASM 2 and GSM 0";
+"highNonPromoterEncumbranceAndGsm0" = "High/Non promoter encumbrance and GSM 0";
+"highPromoterEncumbranceAndGsm0" = "High promoter encumbrance and GSM 0";
+"ibc1AndGsm0" = "IBC 1 and GSM 0";
+"ibc2AndGsm0" = "IBC 2 and GSM 0";
+"ica1AndGsm0" = "ICA 1 and GSM 0";
+"ica2AndGsm0" = "ICA 2 and GSM 0";
+"ibcReceiptAndGsm0" = "IBC - receipt and GSM 0";
+"gsm1AndIbcReceipt" = "GSM 1 and IBC - receipt";
+"gsm2AndIbcReceipt" = "GSM 2 and IBC - receipt";
+"gsm3AndIbcReceipt" = "GSM 3 and IBC - receipt";
+"gsm4AndIbcReceipt" = "GSM 4 and IBC - receipt";
+// EShortTermASMFlag
+"stage1ShortTermASMScrip" = "Stage 1 Short Term ASM scrip";
+"stage2ShortTermASMScrip" = "Stage 2 Short Term ASM scrip";
+// ELongTermASMFlag
+"stage1LongTermASMScrip" = "Stage 1 Long Term ASM scrip";
+"stage2LongTermASMScrip" = "Stage 2 Long Term ASM scrip";
+"stage3LongTermASMScrip" = "Stage 3 Long Term ASM scrip";
+"stage4LongTermASMScrip" = "Stage 4 Long Term ASM scrip";
+
+"contextMenu.showChart" = "Chart";
+"contextMenu.showMarketDepth" = "Market depth";
+"contextMenu.showOrderEntry" = "Order entry";
+"contextMenu.showSymbolInfo" = "Symbol info";
+"contextMenu.showOptionChain" = "Option chain";
+"contextMenu.addAlert" = "Add alert";
+"contextMenu.remove" = "Remove";
+"contextMenu.modifyPosition" = "Modify position";
+"contextMenu.close" = "Close";
+"contextMenu.cancel" = "Cancel";
+"contextMenu.top" = "Top";
+"contextMenu.bottom" = "Bottom";
+"contextMenu.showChartInfo" = "Chart/Info";
+"contextMenu.details" = "Details";
+"contextMenu.increase" = "Increase";
+
+
+//PositionBalance
+"positionsBalance.title" = "Positions balance";
+"positionsBalance.Symbol" = "Symbol";
+"positionsBalance.breakEvenPt" = "Break-even";
+"positionsBalance.grossPL" = "Gross P/L";
+"positionsBalance.currentPrice" = "Current price";
+"positionsBalance.netPositionQty" = "Net position qty.";
+"positionsBalance.longQty" = "Long qty.";
+"positionsBalance.averageLong" = "Average long";
+"positionsBalance.shortQty" = "Short qty.";
+"positionsBalance.averageShort" = "Average short";
+"positionsBalance.grossExposure" = "Gross exposure";
+"positionsBalance.netExposure" = "Net exposure";
+"positionsBalance.positionValue" = "Position value";
+"positionsBalance.totalGrossPL" = "Total Gross P/L";
+"positionsBalance.noPositions" = "As of yet there are no positions";
+"positionsBalance.productType" = "Product type";
+
+"screensot.warning.title" = "Security Reminder";
+"screensot.warning.message" = "Do not share screenshots or videos with others to ensure the security of your account";
+
+
+// Statement
+"statement.title" = "Statement";
+"statement.header.operationType" = "Operation type";
+"statement.header.amount" = "Amount";
+"statement.header.account" = "Account";
+"statement.header.instrumentName" = "Instrument name";
+"statement.header.operationType" = "Operation type";
+"statement.header.operationID" = "Operation ID";
+"statement.header.quantity" = "Quantity";
+"statement.header.positionID" = "Position ID";
+"statement.header.openPrice" = "Open price";
+"statement.header.closePrice" = "Close price";
+"statement.header.tradeOpeningDate" = "Trade opening date";
+"statement.header.tradeID" = "Trade ID";
+"statement.grouping.All" = "All";
+"statement.grouping.GroupByPositionID" = "Group by PositionID";
+"statement.grouping.GroupByOperationType" = "Group by Operation type";
+"statement.grouping.GroupByAccount" = "Group by Account";
+"statement.grouping.GroupByInstrument" = "Group by Instrument";
+"statement.grouping.GroupByPositionID.format" = "Position #%@";
+"statement.noData" = "There is no account history for the selected time frame and filters";
+"statement.others" = "Others";
+"statement.others" = "Others";

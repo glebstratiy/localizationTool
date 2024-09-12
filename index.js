@@ -18,7 +18,7 @@ const upload = multer({ dest: 'uploads/' });
 
 // Подключение к MongoDB
 const dbURI = 'mongodb+srv://admin:admin@cluster0.hxfn3.mongodb.net/'; 
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(dbURI, {})
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.log('MongoDB connection error:', err));
 
