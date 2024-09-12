@@ -73,16 +73,15 @@ app.post('/compare', upload.fields([{ name: 'previousFile' }, { name: 'currentFi
     // Сохранение результатов сравнения в файл
     saveDifferences(differences, differencesPath);
 
-    // Сохранение новой версии файла в корневом каталоге
-    const newFile = new LocalizationFile({
-        platform: platform,
-        filename: path.basename(savePath),
-        data: fs.readFileSync(currentFilePath)
-    });
+    // Чтение текущего файла для сохранения его в базе данных
+    const fileData = fs.readFileSync(currentFilePath);
 
-    // Удаление старого файла для платформы и сохранение нового
-    await LocalizationFile.deleteMany({ platform: platform });
-    await newFile.save();
+    // Обновление или вставка нового файла для конкретной платформы
+    await LocalizationFile.findOneAndUpdate(
+        { platform: platform }, // Ищем файл по платформе
+        { platform: platform, filename: path.basename(savePath), data: fileData }, // Обновляем или вставляем данные
+        { upsert: true, new: true } // Вставить новый, если не найден, и вернуть обновленный документ
+    );
 
     // Перемещение нового файла в корневую директорию
     fs.renameSync(currentFilePath, savePath);

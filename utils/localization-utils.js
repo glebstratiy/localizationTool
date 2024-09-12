@@ -41,12 +41,12 @@ function parseAndroidLocalizationFile(filePath) {
     return localization;
 }
 
-// Функция для нормализации ключей и значений
-function normalizeKey(key) {
+// Функция для нормализации ключей и значений только для WEB
+function normalizeKeyForWeb(key) {
     return key.replace(/['"]/g, '').trim().toLowerCase(); // Убираем кавычки и пробелы, приводим к нижнему регистру
 }
 
-function normalizeValue(value) {
+function normalizeValueForWeb(value) {
     return value.replace(/['"]/g, '').trim(); // Убираем кавычки и пробелы
 }
 
@@ -66,7 +66,7 @@ function parseWebLocalizationFile(filePath) {
         if (keyValuePairs) {
             keyValuePairs.forEach(pair => {
                 const [_, key, value] = pair.match(/['"]?(.+?)['"]?\s*:\s*['"]?([^'",]+)['"]?(,|\n)?/); // Парсим ключ и значение
-                localization[normalizeKey(key)] = normalizeValue(value); // Нормализуем ключи и значения
+                localization[normalizeKeyForWeb(key)] = normalizeValueForWeb(value); // Нормализуем ключи и значения только для веба
             });
         } else {
             console.error('Ключи и значения не найдены в объекте.');
@@ -97,7 +97,7 @@ function parseDesktopLocalizationFile(filePath) {
 }
 
 // Функция для сравнения локализаций
-function compareLocalizations(oldLocalization, newLocalization) {
+function compareLocalizations(oldLocalization, newLocalization, platform) {
     const differences = {
         added: {},
         removed: {},
@@ -106,7 +106,7 @@ function compareLocalizations(oldLocalization, newLocalization) {
 
     // Проверяем удаленные и измененные ключи
     for (const key in oldLocalization) {
-        const normalizedKey = normalizeKey(key);
+        const normalizedKey = platform === 'web' ? normalizeKeyForWeb(key) : key;
         if (!newLocalization.hasOwnProperty(normalizedKey)) {
             differences.removed[normalizedKey] = oldLocalization[key];
         } else if (oldLocalization[key] !== newLocalization[normalizedKey]) {
@@ -119,7 +119,7 @@ function compareLocalizations(oldLocalization, newLocalization) {
 
     // Проверяем добавленные ключи
     for (const key in newLocalization) {
-        const normalizedKey = normalizeKey(key);
+        const normalizedKey = platform === 'web' ? normalizeKeyForWeb(key) : key;
         if (!oldLocalization.hasOwnProperty(normalizedKey)) {
             differences.added[normalizedKey] = newLocalization[normalizedKey];
         }

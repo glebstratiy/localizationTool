@@ -239,8 +239,6 @@
     <string name="chart_cursor_information_close">C</string>
     <string name="chart_cursor_information_high_minus_low">H-L</string>
 
-
-    <string name="explore_warning_error">Please log in to start trading.</string>
     <string name="explore_warning">Please, %1$s to start trading</string>
     <string name="explore_warning_btn">log in</string>
     <string name="account_more_title">Account</string>
@@ -386,7 +384,6 @@
     <string name="watchlist_remove">Remove \'%1$s\' list?</string>
     <string name="watchlist_default">Default list</string>
     <string name="watchlist_default_list_name">New list</string>
-    <string name="watchlist_favorites_reached">Maximum number is reached.</string>
 
     <!--Filter-->
     <string name="filter_button_reset">Reset</string>
@@ -435,7 +432,12 @@
     <string name="order_type_short_stopLossLimit">SLL</string>
     <string name="order_type_short_manual">Man</string>
 
-
+    <string name="simpleChart_year">1y</string>
+    <string name="simpleChart_6month">6m</string>
+    <string name="simpleChart_3month">3m</string>
+    <string name="simpleChart_1month">1m</string>
+    <string name="simpleChart_1weak">1w</string>
+    <string name="simpleChart_1day">1d</string>
 
 
     <string name="chart_averageType_simple">Simple</string>
@@ -446,7 +448,7 @@
 
     <string name="simpleChart_loading">Loading…</string>
     <string name="simpleChart_noDataAvailable">No data available</string>
-    <string name="indexChart_noDataAvailable">No data available for %1$s</string>
+
 
     <!--Indicators property-->
     <string name="indicator_property_averageLine">Average line</string>
@@ -645,7 +647,6 @@
 
     <!-- Positionlist -->
     <string name="pl_total_gross_pl">Total Gross P/L</string>
-    <string name="pl_position_value">Position value</string>
     <string name="pl_total">Total profit</string>
     <string name="pl_profit">Profit</string>
     <string name="pl_symbol">Symbol</string>
@@ -671,7 +672,6 @@
     <string name="pl_MAM_group_id">MAM group ID</string>
     <string name="pl_product_type">Product type</string>
     <string name="pl_exposure">Position exposure</string>
-    <string name="pl_net_pl_percent">Net P/L %</string>
     <string name="pl_trading_exchange">Trading exchange</string>
     <string name="pl_side">Side</string>
     <string name="pl_positions">Positions</string>
@@ -726,7 +726,6 @@
     <string name="volume">Volume</string>
     <string name="trades">Trades</string>
     <string name="working_orders">Working Orders</string>
-    <string name="acc_total_positions_value">Total positions value</string>
     <string name="open_positions">Open Positions</string>
     <string name="acc_balance">Balance</string>
     <string name="acc_net_equity">Net equity</string>
@@ -758,7 +757,6 @@
     <string name="acc_day_trader_pattern_protection">Day trader pattern protection</string>
     <string name="acc_available_day_trades">Available day trades</string>
     <string name="acc_given_leverage">Given leverage</string>
-    <string name="acc_live_leverage">Live leverage</string>
     <string name="acc_open_balance">Open balance</string>
     <string name="acc_stop_out_value">Stop out value</string>
     <string name="acc_stop_out_level">Stop out level</string>
@@ -812,8 +810,6 @@
     <string name="oe_margin_title">Margin</string>
     <string name="oe_stop_limit_tooltip">Additional Limit price is available due to “Use stop limit instead stop” is active</string>
     <string name="oe_account_risk">Account risk</string>
-    <string name="oe_fee">Fee</string>
-    <string name="oe_after_trade_cash">After trade cash</string>
 
 
     <string name="margin_group_risk">Risks</string>
@@ -845,7 +841,6 @@
     <string name="commission_totalFee">Total fee</string>
     <string name="commission_volumeWithMinPD">Fill volume with min p\/d</string>
     <string name="commission_orderPerLot">Order per lot</string>
-    <string name="commission_swap_info">Swap details</string>
     <string name="commission_swap_buy">Swap buy</string>
     <string name="commission_swap_sell">Swap sell</string>
 
@@ -1036,7 +1031,6 @@
     <string name="si_margin_traderevolution_risk_module">TraderEvolution risk module</string>
     <string name="si_price">Price</string>
     <string name="si_last">Last</string>
-    <string name="si_swap_details">Swap details</string>
     <string name="si_swap_buy">Long swap</string>
     <string name="si_swap_sell">Short swap</string>
     <string name="si_commission_info">Сommission info</string>
@@ -1113,6 +1107,12 @@
     <string name="proChart_timeframe_1d">1D</string>
     <string name="proChart_timeframe_1w">1W</string>
     <string name="proChart_timeframe_1M">1M</string>
+
+    <string name="TerceraChartCashItemChangeType_Day">D</string>
+    <string name="TerceraChartCashItemChangeType_Week">W</string>
+    <string name="TerceraChartCashItemChangeType_Month">M</string>
+    <string name="TerceraChartCashItemChangeType_Year">Y</string>
+
 
     <!-- Lookup Fragment -->
     <string name="lookup_search_view_hint_text">Search</string>
@@ -1297,7 +1297,6 @@
     <string name="ConnectionLost">Connection Lost</string>
     <string name="ErrorPriceConnection">Error in price connection</string>
     <string name="ErrorBrandingNotAllowed">The application is not allowed for user.</string>
-    <string name="ErrorMaxConcurrentConnections">The maximum limit for concurrent connections has been reached</string>
     <string name="ErrorUnableToConnect">Unable to connect.</string>
     <string name="ErrorSendingLogon">Error sending logon</string>
     <string name="connection">Connection</string>
@@ -1476,7 +1475,6 @@
     <string name="alert_indicator_limit_reached">Maximum number of chart indicators reached</string>
     <string name="alert_watchlist_limit_reached">The limit of available instruments/rows in Watchlist has been reached. Please contact your support team  for detailed information.</string>
     <string name="alert_order_warning_limit_price_less">Limit order price is less than allowable %% from %1$s, are you sure to submit order?</string>
-    <string name="alert_order_warning_leverage">After placing this order, you will start using broker\'s credit funds (leverage).</string>
     <string name="alert_order_warning_limit_price_greater">Limit order price is greater than allowable %% from %1$s, are you sure to submit order?</string>
     <string name="alert_order_cannot_be_modified">Order cannot be modified</string>
     <string name="alert_order_cannot_be_canceled">Order cannot be canceled</string>
@@ -1818,14 +1816,11 @@
     <string name="stock_liquidity">Stocks liquidity</string>
 
     <string name="trading_disabled_risk_rules">Trading disabled by risk rules.</string>
-    <string name="trading_auto_closed">Auto closed : %1$s</string>
     <string name="event_message">Message</string>
     <string name="user">User</string>
     <string name="event_screenshot_warning">Do not share with others your personal data.</string>
     <string name="event_max_trailing_drawdown_reached">Max trailing drawdown was reached.</string>
     <string name="event_max_relative_drawdown_reached">Max relative drawdown level was reached</string>
-    <string name="event_stop_trading_relative_daily_loss_limit">Relative daily loss limit was reached</string>
-    <string name="event_nonstop_trading_leverage_usage_warn">Warning! You are starting to use broker’s credit funds (leverage).</string>
     <string name="event_weekly_loss_limit_reached">Weekly loss limit was reached</string>
     <string name="event_daily_loss_limit_reached">Daily loss limit was reached.</string>
     <string name="event_stop_trading_negative_projected_balance">Stop out was triggered by negative Projected balance.</string>
@@ -2316,7 +2311,7 @@
     <string name="account_statement_operation_id">Operation ID</string>
     <string name="account_statement_open_price">Open price</string>
     <string name="account_statement_close_price">Close price</string>
-    <string name="account_statement_position_opening_date">Position opening date</string>
+    <string name="account_statement_trade_opening_date">Trade opening date</string>
     <string name="account_statement_quantity">Quantity</string>
     <string name="account_statement_position_id">Position ID</string>
     <string name="account_statement_trade_id">Trade ID</string>
@@ -2330,7 +2325,6 @@
     <string name="account_statement_blocking">Blocking</string>
     <string name="account_statement_unblocking">Unblocking</string>
     <string name="account_statement_funding">Funding</string>
-    <string name="account_statement_portfolio_overnight_fee">Portfolio overnight fee</string>
     <string name="account_statement_value_date">Value date</string>
 
     <!--Disable inactivity period-->
@@ -2590,34 +2584,12 @@
     <string name="delay_string_pattern">Delayed for %1$s minutes</string>
     <string name="account_instrument_volume_limit">%1$s volume limit</string>
     <string name="account_instrument_volume_limit_total">Total</string>
-    <string name="account_daily_loss_limit">Daily loss limit</string>
-    <string name="account_loss_limit_per_trade">Loss limit per trade</string>
-    <string name="account_max_relative_daily_loss_limit">Max relative daily loss limit</string>
-    <string name="account_weekly_loss_limit">Weekly loss limit</string>
-    <string name="account_unrealized_loss_limit">Unrealized loss limit</string>
-    <string name="account_trading_status">Trading status</string>
-    <string name="account_trailing_drawdown_level">Trailing drawdown level</string>
-    <string name="account_total_max_position_qty">Total max position qty</string>
-    <string name="account_max_orders_count_per_day">Max orders count per day</string>
-    <string name="account_max_positions">#Max. positions</string>
-    <string name="account_max_pending_orders">#Max. pending orders</string>
-    <string name="account_max_drawdown_level">Max. drawdown level</string>
-    <string name="account_max_relative_drawdown_level">Max. relative drawdown level</string>
-    <string name="account_max_order_amount">Max. order amount</string>
-    <string name="account_daily_profit_target">Daily profit target</string>
 
     <string name="account_manager_mam_summery">MAM summary</string>
 
     <string name="fragment_youtube_videos">Video</string>
     <string name="fragment_youtube_placeholder">Your video library is empty</string>
     <string name="fragment_youtube_now">Now</string>
-
-    <string name="account_trading_status_active">Active</string>
-    <string name="account_trading_status_closed">Closed</string>
-    <string name="account_trading_status_suspend">Suspend</string>
-    <string name="account_trading_status_by_risk_rule">Trading is disabled by risk rules</string>
-    <string name="account_trading_status_finra">FINRA Day trader pattern</string>
-    <string name="account_trading_status_liquidation_only">Liquidation only</string>
 
     <string name="esm_stage_1_script">Stage 1 ESM scrip</string>
     <string name="esm_stage_2_script">Stage 2 ESM scrip</string>
@@ -2743,15 +2715,5 @@
     <string name="account_live">Live</string>
     <string name="account_demo">Demo</string>
     <string name="account_contest">Contest</string>
-
-    <string name="logs_title">Logs</string>
-    <string name="logs_detail_title">Log detail</string>
-    <string name="logs_title_placeholder">You have no logs for this session</string>
-    <string name="logs_copy">Copy</string>
-    <string name="logs_share">Share</string>
-    <string name="logs_send">Share logs</string>
-    <string name="logs_save">Save logs</string>
-    <string name="logs_saved_to_downloads">Logs saved in "Downloads"</string>
-    <string name="logs_clear">Clear logs</string>
 
 </resources>
