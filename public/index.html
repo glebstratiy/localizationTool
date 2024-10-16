@@ -1,11 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Localization Comparison Tool</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .directory-list-section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h2 {
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .folder {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .folder:hover {
+            background-color: #f1f1f1;
+        }
+
+        .folder .icon {
+            width: 20px;
+            height: 20px;
+            background: url('/images/folder.png') no-repeat center center;
+            background-size: contain;
+            margin-right: 10px;
+        }
+
+        .folder .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .folder.open .arrow {
+            transform: rotate(90deg);
+        }
+
+        .file-list {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding-left: 30px;
+            margin: 10px 0;
+        }
+
+        .file-list.open {
+            max-height: 500px;
+        }
+
+        .file {
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .file .icon {
+            width: 20px;
+            height: 20px;
+            background: url('/images/file.png') no-repeat center center;
+            background-size: contain;
+            margin-right: 10px;
+        }
+
+        .file a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+
+        .file a:hover {
+            text-decoration: underline;
+        }
+
+        .empty-message {
+            padding: 10px;
+            color: #999;
+        }
+    </style>
 </head>
+
 <body>
     <h1>Localization Comparison Tool</h1>
 
@@ -22,13 +121,27 @@
         </div>
 
         <div class="upload-section" id="upload-section" style="display: none;">
-            <h2>Загрузите файлы</h2>
-            <form id="upload-form">
-                <label for="previous-version">Предыдущая версия:</label>
-                <input type="file" id="previous-version" name="previous-version" accept=".strings,.xml,.js,.properties"><br><br>
-                <label for="current-version">Текущая версия:</label>
-                <input type="file" id="current-version" name="current-version" accept=".strings,.xml,.js,.properties"><br><br>
-                
+            <h2>Загрузите файлы и укажите версии</h2>
+            <form id="upload-form" enctype="multipart/form-data">
+                <!-- Поле для указания предыдущей версии -->
+                <label for="previous-version-number">Номер предыдущей версии:</label>
+                <input type="text" id="previous-version-number" name="previousVersion"
+                    placeholder="114"><br><br>
+
+                <!-- Поле для указания текущей версии -->
+                <label for="current-version-number">Номер текущей версии:</label>
+                <input type="text" id="current-version-number" name="currentVersion"
+                    placeholder="115"><br><br>
+
+                <!-- Поля для загрузки файлов предыдущей и текущей версий -->
+                <label for="previous-version">Загрузите предыдущий файл локализации:</label>
+                <input type="file" id="previous-version" name="previous-version"
+                    accept=".strings,.xml,.js,.properties"><br><br>
+
+                <label for="current-version">Загрузите текущий файл локализации:</label>
+                <input type="file" id="current-version" name="current-version"
+                    accept=".strings,.xml,.js,.properties"><br><br>
+
                 <!-- Flexbox контейнер для кнопки и сообщения -->
                 <div class="button-and-message">
                     <button type="button" onclick="uploadFiles()">Сравнить</button>
@@ -39,26 +152,27 @@
                 </div>
             </form>
         </div>
-        
 
-        <div class="actual-keys-section">
-            <h2>Актуальные локализационные ключи</h2>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Платформа</th>
-                            <th>Файл</th>
-                        </tr>
-                    </thead>
-                    <tbody id="actual-keys-list">
-                        <!-- Здесь динамически будут подгружаться актуальные файлы -->
-                    </tbody>
-                </table>
+        <div class="container">
+            <div class="directory-list-section">
+                <h2>Список доступных версий локализаций</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Версия (папка)</th>
+                                <th>Действие</th>
+                            </tr>
+                        </thead>
+                        <tbody id="directory-list">
+                            <!-- Здесь динамически будут подгружаться папки -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
 
     <script src="/js/main.js"></script>
 </body>
+
 </html>

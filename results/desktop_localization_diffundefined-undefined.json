@@ -1,0 +1,13 @@
+{
+  "added": {
+    "AdditionalProperty.Cash": "Cash",
+    "OrderEntry.InfoBlock.FreeCommission": "Free commission",
+    "panel.accounts.FreeCommission": "Free commission",
+    "panel.BasketOrder.Cash.descr": "Cash order quantity",
+    "panel.BasketOrder.Cash": "Cash",
+    "QuantityControl.EstQtyText": "Est. Quantity: {0}",
+    "QuantityTypeCombobox.Tooltip": "Quantity or Cash can be selected"
+  },
+  "removed": {},
+  "changed": {}
+}
