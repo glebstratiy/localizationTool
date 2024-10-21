@@ -1,5 +1,4 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
@@ -12,17 +11,11 @@ const {
     compareLocalizations,
     saveDifferences
 } = require('./utils/localization-utils');
-const LocalizationFile = require('./models/localizationFile');
 
 const app = express();
 const upload = multer({ dest: 'uploads/' });
 
-const dbURI = 'mongodb+srv://admin:admin@cluster0.hxfn3.mongodb.net/';
-mongoose.connect(dbURI, {})
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.log('MongoDB connection error:', err));
-
-// SFTP параметры
+// SFTP parameters
 const sftpConfig = {
     host: 'files.traderevolution.com',
     port: '22',
@@ -30,22 +23,22 @@ const sftpConfig = {
     password: 'Wetfg#432!qd'
 };
 
-// Подключение к SFTP серверу
+// Connecting to the SFTP server
 const sftp = new sftpClient();
 
-// Обслуживание статических файлов
+// Serving static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Маршрут для главной страницы
+// Route for the main page
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Маршрут для обработки сравнения файлов
+// Route for handling file comparison
 app.post('/compare', upload.fields([{ name: 'previousFile' }, { name: 'currentFile' }]), async (req, res) => {
     const platform = req.body.platform;
-    const previousVersion = req.body.previousVersion; // Пример: 114
-    const currentVersion = req.body.currentVersion;   // Пример: 115
+    const previousVersion = req.body.previousVersion; // Example: 114
+    const currentVersion = req.body.currentVersion;   // Example: 115
     const previousFilePath = req.files['previousFile'][0].path;
     const currentFilePath = req.files['currentFile'][0].path;
 
@@ -70,7 +63,7 @@ app.post('/compare', upload.fields([{ name: 'previousFile' }, { name: 'currentFi
             savePath = path.join(__dirname, 'application_en.properties');
             break;
         default:
-            return res.status(400).send('Неверная платформа.');
+            return res.status(400).send('Invalid platform.');
     }
 
     const previousLocalization = parseFunction(previousFilePath);
@@ -78,100 +71,89 @@ app.post('/compare', upload.fields([{ name: 'previousFile' }, { name: 'currentFi
 
     const differences = compareLocalizations(previousLocalization, currentLocalization, platform);
 
-    // Формирование имени файла с датой и временем
+    // Creating a filename with the date and time
     const timestamp = new Date().toISOString().replace(/[-:.]/g, '');
     const differencesFilename = `${platform}_localization_diff${previousVersion}-${currentVersion}.json`;
     const differencesPath = path.join(__dirname, 'results', differencesFilename);
 
-    // Сохранение результатов сравнения в файл
+    // Saving comparison results to a file
     saveDifferences(differences, differencesPath);
 
-    // Создание папки на сервере с версиями
+    // Creating a folder on the server with version numbers
     const remoteDir = `/ftp/releases/te/localization_keys_diff/${previousVersion}-${currentVersion}`;
 
     try {
-        // Подключение к SFTP и создание директории, если она не существует
+        // Connecting to SFTP and creating the directory if it doesn't exist
         await sftp.connect(sftpConfig);
 
         const remoteDirExists = await sftp.exists(remoteDir);
         if (!remoteDirExists) {
-            await sftp.mkdir(remoteDir, true); // Создаем директорию с родительскими
+            await sftp.mkdir(remoteDir, true); // Create the directory with parent directories
         }
 
-        // Загрузка файла в новую директорию на сервере
+        // Uploading the file to the new directory on the server
         await sftp.put(differencesPath, `${remoteDir}/${differencesFilename}`);
-        await sftp.end(); // Закрываем подключение к SFTP
+        await sftp.end(); // Closing the SFTP connection
     } catch (err) {
-        console.error('Ошибка при работе с SFTP:', err);
-        return res.status(500).send('Ошибка при загрузке файла на сервер.');
+        console.error('Error working with SFTP:', err);
+        return res.status(500).send('Error uploading file to the server.');
     }
 
-    // Обновление или вставка нового файла для конкретной платформы в MongoDB
-    const fileData = fs.readFileSync(currentFilePath);
-    await LocalizationFile.findOneAndUpdate(
-        { platform: platform },
-        { platform: platform, filename: path.basename(savePath), data: fileData },
-        { upsert: true, new: true }
-    );
-
-    // Перемещение нового файла в корневую директорию
-    fs.renameSync(currentFilePath, savePath);
-
-    // Отправка ответа с ссылкой на скачивание файла
+    // Sending the response with a download link
     res.json({
-        message: 'Файл готов к скачиванию и загружен на сервер.',
+        message: 'The file is ready for download and uploaded to the server.',
         downloadLink: `/download/${differencesFilename}`,
-        remotePath: `${remoteDir}/${differencesFilename}` // Путь на сервере
+        remotePath: `${remoteDir}/${differencesFilename}` // Server path
     });
 });
 
-// Новый маршрут для получения списка папок и файлов
+// New route for getting a list of directories and files
 app.get('/list-directories', async (req, res) => {
     const remoteBaseDir = '/ftp/releases/te/localization_keys_diff';
 
     try {
-        // Подключаемся к SFTP серверу
+        // Connecting to the SFTP server
         await sftp.connect(sftpConfig);
 
-        // Получаем список директорий и файлов
+        // Getting the list of directories and files
         const items = await sftp.list(remoteBaseDir);
 
-        // Формируем ответ, возвращаем только директории и файлы
+        // Formatting the response, returning only directories and files
         const directories = items.filter(item => item.type === 'd').map(item => item.name);
         const files = items.filter(item => item.type === '-').map(item => item.name);
 
-        await sftp.end(); // Закрываем подключение к SFTP
+        await sftp.end(); // Closing the SFTP connection
 
         res.json({ directories, files });
     } catch (err) {
-        console.error('Ошибка при работе с SFTP:', err);
-        res.status(500).send('Не удалось получить список директорий и файлов.');
+        console.error('Error working with SFTP:', err);
+        res.status(500).send('Failed to retrieve the list of directories and files.');
     }
 });
 
-// Маршрут для получения файлов в указанной директории
+// Route for retrieving files in a specified directory
 app.get('/list-files', async (req, res) => {
     const directory = req.query.directory;
     const remoteDir = `/ftp/releases/te/localization_keys_diff/${directory}`;
 
     try {
-        // Подключаемся к SFTP серверу
+        // Connecting to the SFTP server
         await sftp.connect(sftpConfig);
 
-        // Получаем список файлов
+        // Getting the list of files
         const items = await sftp.list(remoteDir);
         const files = items.filter(item => item.type === '-').map(item => item.name);
 
-        await sftp.end(); // Закрываем подключение
+        await sftp.end(); // Closing the connection
 
         res.json({ files });
     } catch (err) {
-        console.error('Ошибка при работе с SFTP:', err);
-        res.status(500).send('Не удалось получить список файлов.');
+        console.error('Error working with SFTP:', err);
+        res.status(500).send('Failed to retrieve the list of files.');
     }
 });
 
-// Маршрут для скачивания файла
+// Route for downloading a file
 app.get('/download-file', async (req, res) => {
     const directory = req.query.directory;
     const file = req.query.file;
@@ -184,55 +166,54 @@ app.get('/download-file', async (req, res) => {
     }
 
     try {
-        // Подключаемся к SFTP серверу
+        // Connecting to the SFTP server
         await sftp.connect(sftpConfig);
 
-        // Загружаем файл с SFTP на локальный сервер
+        // Downloading the file from SFTP to the local server
         await sftp.fastGet(remoteFilePath, localFilePath);
-        await sftp.end(); // Закрываем подключение
+        await sftp.end(); // Closing the connection
 
-        // Отправляем файл на скачивание пользователю
+        // Sending the file for download to the user
         res.download(localFilePath, (err) => {
             if (err) {
-                console.error('Ошибка при скачивании файла:', err);
-                res.status(500).send('Не удалось скачать файл.');
+                console.error('Error downloading file:', err);
+                res.status(500).send('Failed to download the file.');
             }
 
-            // Удаляем файл после скачивания
+            // Deleting the file after download
             fs.unlinkSync(localFilePath);
         });
     } catch (err) {
-        console.error('Ошибка при работе с SFTP:', err);
-        res.status(500).send('Не удалось скачать файл.');
+        console.error('Error working with SFTP:', err);
+        res.status(500).send('Failed to download the file.');
     }
 });
 
-// Маршрут для открытия содержимого файла в браузере
+// Route for viewing the content of a file in the browser
 app.get('/view-file', async (req, res) => {
     const directory = req.query.directory;
     const file = req.query.file;
     const remoteFilePath = `/ftp/releases/te/localization_keys_diff/${directory}/${file}`;
 
     try {
-        // Подключаемся к SFTP серверу
+        // Connecting to the SFTP server
         await sftp.connect(sftpConfig);
 
-        // Загружаем содержимое файла в буфер
+        // Downloading the file content into a buffer
         const fileContent = await sftp.get(remoteFilePath);
 
-        await sftp.end(); // Закрываем подключение
+        await sftp.end(); // Closing the connection
 
-        // Отправляем содержимое файла в ответе
-        res.setHeader('Content-Type', 'text/plain'); // Устанавливаем тип содержимого как текст
-        res.send(fileContent.toString('utf-8')); // Отправляем содержимое как текст
+        // Sending the file content as a response
+        res.setHeader('Content-Type', 'text/plain'); // Setting content type as plain text
+        res.send(fileContent.toString('utf-8')); // Sending the content as text
     } catch (err) {
-        console.error('Ошибка при открытии файла:', err);
-        res.status(500).send('Не удалось открыть файл.');
+        console.error('Error opening file:', err);
+        res.status(500).send('Failed to open the file.');
     }
 });
 
-
-// Запуск сервера
+// Starting the server
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

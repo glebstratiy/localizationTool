@@ -110,9 +110,9 @@
 
     <div class="container">
         <div class="platform-selection">
-            <label for="platform">Выберите платформу:</label>
+            <label for="platform">Choose platform:</label>
             <select id="platform" name="platform">
-                <option value="">--Выберите платформу--</option>
+                <option value="">--Select platform--</option>
                 <option value="ios">iOS</option>
                 <option value="android">Android</option>
                 <option value="web">WEB</option>
@@ -121,33 +121,33 @@
         </div>
 
         <div class="upload-section" id="upload-section" style="display: none;">
-            <h2>Загрузите файлы и укажите версии</h2>
+            <h2>Upload files and specify versions</h2>
             <form id="upload-form" enctype="multipart/form-data">
-                <!-- Поле для указания предыдущей версии -->
-                <label for="previous-version-number">Номер предыдущей версии:</label>
+                <!-- Field for specifying the previous version number -->
+                <label for="previous-version-number">Previous version number:</label>
                 <input type="text" id="previous-version-number" name="previousVersion"
-                    placeholder="114"><br><br>
+                    placeholder="e.g. 114"><br><br>
 
-                <!-- Поле для указания текущей версии -->
-                <label for="current-version-number">Номер текущей версии:</label>
+                <!-- Field for specifying the current version number -->
+                <label for="current-version-number">Current version number:</label>
                 <input type="text" id="current-version-number" name="currentVersion"
-                    placeholder="115"><br><br>
+                    placeholder="e.g. 115"><br><br>
 
-                <!-- Поля для загрузки файлов предыдущей и текущей версий -->
-                <label for="previous-version">Загрузите предыдущий файл локализации:</label>
+                <!-- Fields for uploading the previous and current version files -->
+                <label for="previous-version">Upload previous localization file:</label>
                 <input type="file" id="previous-version" name="previous-version"
                     accept=".strings,.xml,.js,.properties"><br><br>
 
-                <label for="current-version">Загрузите текущий файл локализации:</label>
+                <label for="current-version">Upload current localization file:</label>
                 <input type="file" id="current-version" name="current-version"
                     accept=".strings,.xml,.js,.properties"><br><br>
 
-                <!-- Flexbox контейнер для кнопки и сообщения -->
+                <!-- Flexbox container for the button and message -->
                 <div class="button-and-message">
-                    <button type="button" onclick="uploadFiles()">Сравнить</button>
+                    <button type="button" onclick="uploadFiles()">Compare</button>
                     <div id="download-message" style="display: none;">
                         <p id="download-text"></p>
-                        <a id="download-link" href="#" style="display: none;">Скачать файл с изменениями</a>
+                        <a id="download-link" href="#" style="display: none;">Download file with changes</a>
                     </div>
                 </div>
             </form>
@@ -155,17 +155,17 @@
 
         <div class="container">
             <div class="directory-list-section">
-                <h2>Список доступных версий локализаций</h2>
+                <h2>List of available localization versions</h2>
                 <div class="table-container">
                     <table>
                         <thead>
                             <tr>
-                                <th>Версия (папка)</th>
-                                <th>Действие</th>
+                                <th>Version (folder)</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody id="directory-list">
-                            <!-- Здесь динамически будут подгружаться папки -->
+                            <!-- Folders will be dynamically loaded here -->
                         </tbody>
                     </table>
                 </div>
