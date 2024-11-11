@@ -37,30 +37,26 @@ app.get('/', (req, res) => {
 // Route for handling file comparison
 app.post('/compare', upload.fields([{ name: 'previousFile' }, { name: 'currentFile' }]), async (req, res) => {
     const platform = req.body.platform;
-    const previousVersion = req.body.previousVersion; // Example: 114
-    const currentVersion = req.body.currentVersion;   // Example: 115
+    const previousVersion = req.body.previousVersion;
+    const currentVersion = req.body.currentVersion;
     const previousFilePath = req.files['previousFile'][0].path;
     const currentFilePath = req.files['currentFile'][0].path;
+    const uploadToServer = req.body.uploadToServer === 'true';
 
     let parseFunction;
-    let savePath;
 
     switch (platform) {
         case 'ios':
             parseFunction = parseIOSLocalizationFile;
-            savePath = path.join(__dirname, 'Localizable.strings');
             break;
         case 'android':
             parseFunction = parseAndroidLocalizationFile;
-            savePath = path.join(__dirname, 'full_strings.xml');
             break;
         case 'web':
             parseFunction = parseWebLocalizationFile;
-            savePath = path.join(__dirname, 'application_es_properties.js');
             break;
         case 'desktop':
             parseFunction = parseDesktopLocalizationFile;
-            savePath = path.join(__dirname, 'application_en.properties');
             break;
         default:
             return res.status(400).send('Invalid platform.');
@@ -68,43 +64,44 @@ app.post('/compare', upload.fields([{ name: 'previousFile' }, { name: 'currentFi
 
     const previousLocalization = parseFunction(previousFilePath);
     const currentLocalization = parseFunction(currentFilePath);
-
     const differences = compareLocalizations(previousLocalization, currentLocalization, platform);
 
-    // Creating a filename with the date and time
     const timestamp = new Date().toISOString().replace(/[-:.]/g, '');
     const differencesFilename = `${platform}_localization_diff${previousVersion}-${currentVersion}.json`;
     const differencesPath = path.join(__dirname, 'results', differencesFilename);
 
-    // Saving comparison results to a file
     saveDifferences(differences, differencesPath);
 
-    // Creating a folder on the server with version numbers
-    const remoteDir = `/ftp/releases/te/localization_keys_diff/${previousVersion}-${currentVersion}`;
+    // If upload to server is requested, handle SFTP upload
+    if (uploadToServer) {
+        const remoteDir = `/ftp/releases/te/localization_keys_diff/${previousVersion}-${currentVersion}`;
 
-    try {
-        // Connecting to SFTP and creating the directory if it doesn't exist
-        await sftp.connect(sftpConfig);
-
-        const remoteDirExists = await sftp.exists(remoteDir);
-        if (!remoteDirExists) {
-            await sftp.mkdir(remoteDir, true); // Create the directory with parent directories
+        try {
+            await sftp.connect(sftpConfig);
+            const remoteDirExists = await sftp.exists(remoteDir);
+            if (!remoteDirExists) {
+                await sftp.mkdir(remoteDir, true);
+            }
+            await sftp.put(differencesPath, `${remoteDir}/${differencesFilename}`);
+            await sftp.end();
+        } catch (err) {
+            console.error('Error working with SFTP:', err);
+            return res.status(500).send('Error uploading file to the server.');
         }
 
-        // Uploading the file to the new directory on the server
-        await sftp.put(differencesPath, `${remoteDir}/${differencesFilename}`);
-        await sftp.end(); // Closing the SFTP connection
-    } catch (err) {
-        console.error('Error working with SFTP:', err);
-        return res.status(500).send('Error uploading file to the server.');
+        res.json({
+            message: 'The file is ready for viewing and download.',
+            viewLink: `/view-local-file?filename=${differencesFilename}`,
+            downloadLink: `/download-local-file?filename=${differencesFilename}`
+        });        
+    } else {
+        // Provide direct local links for viewing and downloading without server upload
+        res.json({
+            message: 'The file is ready for viewing and download.',
+            viewLink: `/view-local-file?filename=${differencesFilename}`,
+            downloadLink: `/download-local-file?filename=${differencesFilename}`
+        });
     }
-
-    // Sending the response with a download link
-    res.json({
-        message: 'The file is ready for download and uploaded to the server.',
-        downloadLink: `/download/${differencesFilename}`,
-        remotePath: `${remoteDir}/${differencesFilename}` // Server path
-    });
 });
 
 // New route for getting a list of directories and files
@@ -212,6 +209,36 @@ app.get('/view-file', async (req, res) => {
         res.status(500).send('Failed to open the file.');
     }
 });
+
+app.get('/view-local-file', (req, res) => {
+    const filename = req.query.filename;
+    const filePath = path.join(__dirname, 'results', filename);
+
+    if (fs.existsSync(filePath)) {
+        res.setHeader('Content-Type', 'application/json'); // Adjust if needed based on file type
+        const fileContent = fs.readFileSync(filePath, 'utf-8');
+        res.send(fileContent);
+    } else {
+        res.status(404).send('File not found.');
+    }
+});
+
+app.get('/download-local-file', (req, res) => {
+    const filename = req.query.filename;
+    const filePath = path.join(__dirname, 'results', filename);
+
+    if (fs.existsSync(filePath)) {
+        res.download(filePath, (err) => {
+            if (err) {
+                console.error('Error sending file for download:', err);
+                res.status(500).send('Failed to download the file.');
+            }
+        });
+    } else {
+        res.status(404).send('File not found.');
+    }
+});
+
 
 // Starting the server
 const PORT = process.env.PORT || 5001;

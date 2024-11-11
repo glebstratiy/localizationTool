@@ -1,0 +1,235 @@
+{
+  "added": {
+    "AdditionalProperty.AfterTradeCash": "After trade cash",
+    "AdditionalProperty.Fee": "Estimated fees",
+    "AdditionalProperty.MarginCallReachedMessage.Message": "#hidden#",
+    "AdditionalProperty.PortfolioOvernightFee": "Portfolio overnight fee",
+    "AdvancedPasswordBoxWPF.showPasswordOff.ToolTip": "Press to hide password",
+    "AdvancedPasswordBoxWPF.showPasswordOn.ToolTip": "Press to show password",
+    "AlertStatus.Stopped": "Stopped",
+    "AlertStatus.Active": "Active",
+    "BusinessRejectMessage.141": "No price available",
+    "BusinessRejectMessage.419": "Unable to create alert. Alerts can only be created for accounts of the logged-in user.",
+    "BusinessRejectMessage.475": "Only In-the-money options can be exercised",
+    "BusinessRejectMessage.479": "No available instrument list",
+    "DataFilterType.ByAccountName": "Account Name",
+    "DataFilter.MaxProjBalance": "Max. ProjectedBalance",
+    "DataFilter.MinProjBalance": "Min. ProjectedBalance",
+    "DataFilter.MaintMarginAbove": "Maint. margin above %",
+    "TerminalMode.None": "All data",
+    "TerminalMode.PerTrader": "Per trader",
+    "TerminalMode.ByUserGroup": "Per user group",
+    "DaysPerMonthType.Default": "30",
+    "DaysPerMonthType.Actual": "Actual",
+    "DaysPerYearType.Default": "360",
+    "Externalpanels.StatementReportPanel.Table.TradeID": "Trade ID",
+    "general.trading.PositionExerciseReject": "Position exercise reject",
+    "general.WarnLeverageUsage": "Warn when entering into leverage",
+    "InstrumentDetailsPanel.BondDaysPerMonth": "Days per month",
+    "InstrumentDetailsPanel.BondDaysPerMonth.descr": "Days number in a month used for interest calculations",
+    "InstrumentDetailsPanel.BondDaysPerYear": "Days per year",
+    "InstrumentDetailsPanel.BondDaysPerYear.descr": "Days number in a year used for interest calculations",
+    "InstrumentDetailsPanel.Fees.Tooltip": "Fees for {0}. To find out about fees for another account, open panel with account lookup or apply the account link.",
+    "InstrumentDetailsPanel.ShortSwapInfo": "Swap details",
+    "InstrumentTypeEnum.All": "All",
+    "InstrumentTypeEnum.Forex": "FX",
+    "InstrumentTypeEnum.Equities": "EQ",
+    "InstrumentTypeEnum.Futures": "FUT",
+    "InstrumentTypeEnum.Options": "OPT",
+    "InstrumentTypeEnum.CFD": "CFD",
+    "InstrumentTypeEnum.Forward": "FW",
+    "InstrumentTypeEnum.Indices": "IND",
+    "InstrumentTypeEnum.Portfolio": "SI",
+    "InstrumentTypeEnum.Crypto": "CRY",
+    "InstrumentTypeEnum.Spreadbet": "SB",
+    "InstrumentTypeEnum.Bond": "BND",
+    "InstrumentTypeEnum.ETF": "ETF",
+    "InstrumentTypeEnum.TBill": "T-B",
+    "InstrumentTypeEnum.SPOT": "SPT",
+    "InstrumentTypeEnum.Corporate": "COR",
+    "IsAllowedResponceReason.OnlyInTheMoneyOptionsCanExercised": "Only In-the-money options can be exercised",
+    "LoginError.Caption": "Login Error",
+    "logoutMessage.MaxConcurrentConnections": "The maximum limit for concurrent connections has been reached",
+    "logoutMessage.MaxConcurrentConnections.Caption": "Max. concurrent connections",
+    "MarginInfoControl.NotAllowedForSynth": "Not allowed for Synthetic instrument",
+    "OkButton.Text": "OK",
+    "OrderEntry.InfoBlock.AfterTradeCash": "After trade cash",
+    "OrderEntry.InfoBlock.SwapInfo": "Swap details",
+    "OrderExecutionScheme.None": "None",
+    "panel.accounts.accountDetails.RiskManagement.TradingStatus.EOD trailing drawdown level was reached": "EOD trailing drawdown level was reached",
+    "panel.accounts.accountDetails.RiskManagement.TradingStatus.Max relative daily loss limit": "Relative daily loss limit was reached",
+    "panel.accounts.AvailableCash": "Available cash",
+    "panel.accounts.EODTrailingDrawdownLevel.descr": "Indicates minimal allowed Projected balance value (recalculated at the end of each day) that the account can have.",
+    "panel.accounts.EODTrailingDrawdownLevel": "EOD trailing drawdown level",
+    "panel.accounts.MaxRelativeDailyLossLimit.descr": "Indicates the maximum allowed losses",
+    "panel.accounts.MaxRelativeDailyLossLimit": "Max relative daily loss limit",
+    "panel.accounts.menu.PredefinedFilters": "Accounts filter",
+    "panel.accounts.TotalPositionsValue": "Total positions value",
+    "panel.closePosition.Fee": "Estimated closing fee",
+    "panel.positions.AccruedInterest": "Accrued interest",
+    "panel.positions.AccruedInterest.descr": "Interest accrued on position",
+    "panel.tradingIdeasV2.NoData.Text": "No trading ideas",
+    "property.dealTickets.openMarginOnWorkspace.ToolTip": "If activated, the Margin Warning and Margin Call deal tickets will appear on the workspace",
+    "property.dealTickets.openMarginOnWorkspace": "Show margin deal ticket on workspace",
+    "property.dealTickets.openMarginOnWorkspace.Default": "#hidden#",
+    "property.infoWindow_back_color": "Back color",
+    "property.infoWindow_value_fore_color": "Neutral color",
+    "property.infoWindow_negative_value_fore_color": "Decrease color",
+    "property.infoWindow_positive_value_fore_color": "Increase color",
+    "property.PredefinedFilters": "Accounts filtration",
+    "RiskRuleType.NegativeProjectedBalance": "Stop out was triggered by negative Projected balance",
+    "RiskRuleType.LeverageUsageWarn": "Warning! You are starting to use broker’s credit funds (leverage).",
+    "screen.Alerts.TableItem.Account": "Account",
+    "screen.Alerts.NoData.Text": "No alerts",
+    "screen.reports.reportHeaders.account": "Account:",
+    "screen.reports.reportHeaders.currancy": "Currency:",
+    "screen.WebCA.CapitalGroupPwdScreen.Caption": "WebCA",
+    "screen.WebCA.CapitalGroupPwdScreen.LoginLabel": "Login/ID Number:",
+    "screen.WebCA.CapitalGroupPwdScreen.PasswordLabel": "Capital Group PWD:",
+    "screen.WebCA.CapitalGroupPwdScreen.OkButton.Text": "OK",
+    "screen.WebCA.CapitalGroupPwdScreen.CancelButton.Text": "Cancel",
+    "screen.WebCA.FirstLoginScreen.Caption": "First time Login - Please change your password on the website",
+    "ServerMargin.AvailableCashRiskWarningMessage": "After placing this order, you will start using broker's credit funds (leverage).",
+    "StatementItem.PositionID.GroupKey.Format": "Position#{0}",
+    "StatementItem.PositionID.GroupKey.EmptyValue": "Others",
+    "StatementItem.Symbol.GroupKey.EmptyValue": "Others"
+  },
+  "removed": {
+    "accountDetailsWidget.DropdownButton.Tooltip": "Account menu",
+    "Externalpanels.StatementReportPanel.Table.InstrumentName.descr": "Instrument name",
+    "Externalpanels.StatementReportPanel.Table.InstrumentName": "Instrument name",
+    "ManagedAccountStatisticsPanel.Table.InstrumentName": "Instrument name",
+    "Utils.KnowledgeBaseURL": "https://guide.traderevolution.com/project/desktop-application-for-windows/windows",
+    "Utils.KnowledgeBaseURLAlgo": "https://guide.traderevolution.com/project/evocode"
+  },
+  "changed": {
+    "DataFilterType.ByEmail": {
+      "old": "Per trader",
+      "new": "E-mail"
+    },
+    "Externalpanels.StatementReportPanel.Table.FXRate": {
+      "old": "FX rate",
+      "new": "#hidden#"
+    },
+    "Externalpanels.StatementReportPanel.Table.TradeOpeningDate": {
+      "old": "Trade opening date",
+      "new": "Position opening date"
+    },
+    "InstrumentDetailsPanel.ShortComissionInfo": {
+      "old": "Сommission info",
+      "new": "Commission info"
+    },
+    "onBoarding.slide1.text1": {
+      "old": "Workspace consists of windows and panels, their\\n configurations, and on-screen location. Any\\n changes to a workspace are saved automatically.",
+      "new": "Workspace consists of windows and panels, their\\nconfigurations, and on-screen location. Any changes\\nto a workspace are saved automatically"
+    },
+    "onBoarding.slide2.text2": {
+      "old": "You can rename the workspace\\nby double-clicking its name",
+      "new": "You can rename the workspace\\nby double-clicking on its name"
+    },
+    "onBoarding.slide3.text1": {
+      "old": "You can lock and unlock your workspace by\\n clicking the lock sign. If the workspace is locked,\\n you won’t be able to close existing windows\\n or add new ones.",
+      "new": "If the workspace is locked, the user\\ncan't close the panels, add new ones\\nor move them"
+    },
+    "onBoarding.slide3.text2": {
+      "old": "You can close a workspace by\\n clicking the “X” button.",
+      "new": "You can lock and unlock your workspace by\\nclicking the lock sign. If the workspace is\\nlocked, you won’t be able to close existing\\nwindows or add new ones"
+    },
+    "onBoarding.slide4.text1": {
+      "old": "You can open any of the saved\\nworkspaces by clicking the arrow down\\nsign at the bottom of the screen.",
+      "new": "You can open any of the saved\\nworkspaces by clicking the arrow\\ndown sign at the bottom of the screen"
+    },
+    "onBoarding.slide4.text2": {
+      "old": "To delete a workspace, click on\\nthe “X” button next to its name.",
+      "new": "To delete a workspace, click on\\nthe “×” button next to its name"
+    },
+    "onBoarding.slide5.text1": {
+      "old": "You can switch symbols automatically in all windows\\nby changing it in only one place. In order to do so,\\nclick the Link icon and choose a matching color in all\\nthe relevant windows.",
+      "new": "You can switch symbols automatically in all windows\\nby changing it in only one place. In order to do so,\\nclick the Link icon and choose a matching color in all\\nthe relevant windows"
+    },
+    "onBoarding.slide6.text1": {
+      "old": "You can place Limit, Stop, Stop-Limit or\\nOCO orders directly on the chart by using\\nthe Mouse Trading feature. To activate\\nMouse Trading, click the blue mouse icon\\nat the top right corner of the chart.",
+      "new": "You can place Limit, Stop, Stop-Limit or\\nOCO orders directly on the chart by using\\nthe Mouse Trading feature. To activate\\nMouse Trading, click the blue mouse icon\\nat the top right corner of the chart"
+    },
+    "onBoarding.slide6.text2": {
+      "old": "You can set both the Quantity and Order validity\\nin the widget which pops out after activation of\\nthe feature.",
+      "new": "You can set both the Quantity and Order validity\\nin the widget which pops out after activation of\\nthe feature"
+    },
+    "onBoarding.slide6.text3": {
+      "old": "Use drag&drop to modify orders and\\npositions, add Stop Loss or Take Profit,\\nor change the quantity.",
+      "new": "Use drag&drop to modify orders and\\npositions, add Stop Loss or Take Profit,\\nor change the quantity"
+    },
+    "onBoarding.slide7.text1": {
+      "old": "You are not bound to standard\\ncharts or time frames anymore. Create\\ncustom charts in the “Edit mode” and\\nsave them to your Favorites.",
+      "new": "You don’t have to be bound to candlestick\\ncharts and standard timeframes anymore.\\nCreate custom charts in the “Edit mode”\\nand save them to your Favorites"
+    },
+    "onBoarding.slide7.text2": {
+      "old": "You can delete a custom chart by clicking\\nthe “X” button next to its name.",
+      "new": "You can delete a custom chart by clicking\\nthe “X” button next to its name"
+    },
+    "onBoarding.slide8.text1": {
+      "old": "Before placing the order, you can review additional risk\\ninformation by extending the Order Entry panel.",
+      "new": "Before placing the order, you can review additional risk\\ninformation by extending the Order Entry panel"
+    },
+    "onBoarding.slide8.text2": {
+      "old": "Buttons to show/hide the panel.",
+      "new": "Buttons to show/hide the panel"
+    },
+    "onBoarding.slide9.text1": {
+      "old": "Any window in the workspace can be\\nmoved and docked with other windows.\\nSimply drag any window to where you\\nwant to dock it, until blue buttons with\\narrows appear.",
+      "new": "Any window in the workspace can be\\nmoved and docked with other windows.\\nSimply drag any window to where you\\nwant to dock it, until blue buttons with\\narrows appear"
+    },
+    "onBoarding.slide10.text1": {
+      "old": "You can find additional information about each\\ninstrument by clicking on the instrument type icon",
+      "new": "You can find additional information\\nabout each instrument by clicking on\\nthe instrument type icon"
+    },
+    "onBoarding.slide11.text1": {
+      "old": "Drag&drop any field from the list to\\ncustomize the info shown in the widget.",
+      "new": "Drag&drop any field from the list to\\ncustomize the info shown in the widget"
+    },
+    "onBoarding.slide12.header1": {
+      "old": "Window linking by account",
+      "new": "Panels linking"
+    },
+    "onBoarding.slide12.text1": {
+      "old": "You can enable the linking of\\nwindows by account",
+      "new": "You can enable the linking of\\npanels by account"
+    },
+    "onBoarding.slide12.text2": {
+      "old": "You can enable orders and\\nposition filtering by account",
+      "new": "You can enable orders and\\npositions filtering by account"
+    },
+    "onBoarding.slide13.text1": {
+      "old": "For a full User Manual,\\nclick on the Help button.",
+      "new": "For a full User Manual,\\nclick on the Help button"
+    },
+    "onBoarding.slide13.text2": {
+      "old": "Here you can edit general settings,\\nhotkeys, trading defaults and more.",
+      "new": "Here you can edit general settings,\\nhotkeys, trading defaults and more"
+    },
+    "panel.tradingIdeasV2.LifeTime": {
+      "old": "LifeTime",
+      "new": "Lifetime"
+    },
+    "panel.tradingIdeasV2.LifeTimeDays": {
+      "old": "Days",
+      "new": "days"
+    },
+    "panel.tradingIdeasV2.LifeTimeHours": {
+      "old": "Hours",
+      "new": "hours"
+    },
+    "panel.tradingIdeasV2.LifeTimeMinutes": {
+      "old": "Minutes",
+      "new": "minutes"
+    },
+    "panel.tradingIdeasV2.LifeTimeSeconds": {
+      "old": "Seconds",
+      "new": "seconds"
+    },
+    "screen.Alerts.Notification": {
+      "old": "Notification",
+      "new": "Notification type"
+    }
+  }
+}

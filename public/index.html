@@ -125,13 +125,11 @@
             <form id="upload-form" enctype="multipart/form-data">
                 <!-- Field for specifying the previous version number -->
                 <label for="previous-version-number">Previous version number:</label>
-                <input type="text" id="previous-version-number" name="previousVersion"
-                    placeholder="e.g. 114"><br><br>
+                <input type="text" id="previous-version-number" name="previousVersion" placeholder="e.g. 114"><br><br>
 
                 <!-- Field for specifying the current version number -->
                 <label for="current-version-number">Current version number:</label>
-                <input type="text" id="current-version-number" name="currentVersion"
-                    placeholder="e.g. 115"><br><br>
+                <input type="text" id="current-version-number" name="currentVersion" placeholder="e.g. 115"><br><br>
 
                 <!-- Fields for uploading the previous and current version files -->
                 <label for="previous-version">Upload previous localization file:</label>
@@ -144,14 +142,24 @@
 
                 <!-- Flexbox container for the button and message -->
                 <div class="button-and-message">
-                    <button type="button" onclick="uploadFiles()">Compare</button>
+                    <button type="button" id="compare-button" onclick="uploadFiles()">Compare</button>
                     <div id="download-message" style="display: none;">
                         <p id="download-text"></p>
                         <a id="download-link" href="#" style="display: none;">Download file with changes</a>
                     </div>
                 </div>
+                <br><br>
+                <label for="upload-to-server">Upload file to server?</label>
+                <input type="checkbox" id="upload-to-server" name="uploadToServer" checked><br><br>
             </form>
         </div>
+
+        <div class="message-section" style="display: none;">
+            <p class="upload-status" style="display: none;">File was successfully uploaded to the server.</p>
+            <p class="message-text"></p>
+            <a class="view-file-link" href="#" target="_blank" style="display: none;">View file</a>
+            <a class="download-file-link" href="#" download style="display: none;">Download file</a>
+        </div>              
 
         <div class="container">
             <div class="directory-list-section">
@@ -172,7 +180,7 @@
             </div>
         </div>
 
-    <script src="/js/main.js"></script>
+        <script src="/js/main.js"></script>
 </body>
 
 </html>

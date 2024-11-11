@@ -1,12 +1,21 @@
-document.getElementById('platform').addEventListener('change', function () {
-    var platform = this.value;
-    var uploadSection = document.getElementById('upload-section');
+document.addEventListener("DOMContentLoaded", function () {
+    // Ensure elements are loaded before running scripts
+    loadDirectories();
+    loadActualKeys();
 
-    if (platform) {
-        uploadSection.style.display = 'block';
-    } else {
-        uploadSection.style.display = 'none';
-    }
+    // Bind the uploadFiles function to the Compare button
+    document.getElementById('compare-button').addEventListener('click', uploadFiles);
+
+    document.getElementById('platform').addEventListener('change', function () {
+        var platform = this.value;
+        var uploadSection = document.getElementById('upload-section');
+
+        if (platform) {
+            uploadSection.style.display = 'block';
+        } else {
+            uploadSection.style.display = 'none';
+        }
+    });
 });
 
 function uploadFiles() {
@@ -14,42 +23,71 @@ function uploadFiles() {
     var platform = document.getElementById('platform').value;
     var previousFile = document.getElementById('previous-version').files[0];
     var currentFile = document.getElementById('current-version').files[0];
-
-    // Получение версий из текстовых полей
     var previousVersion = document.getElementById('previous-version-number').value;
     var currentVersion = document.getElementById('current-version-number').value;
+    var uploadToServer = document.getElementById('upload-to-server').checked;
 
-    // Проверка наличия всех необходимых данных
     if (!platform || !previousFile || !currentFile || !previousVersion || !currentVersion) {
-        alert('Пожалуйста, выберите платформу, укажите версии и загрузите оба файла.');
+        alert('Please select a platform, specify versions, and upload both files.');
         return;
     }
 
-    // Добавление данных в formData
     formData.append('platform', platform);
     formData.append('previousFile', previousFile);
     formData.append('currentFile', currentFile);
-    formData.append('previousVersion', previousVersion);  // Добавление предыдущей версии
-    formData.append('currentVersion', currentVersion);    // Добавление текущей версии
+    formData.append('previousVersion', previousVersion);
+    formData.append('currentVersion', currentVersion);
+    formData.append('uploadToServer', uploadToServer);
 
-    // Отправка запроса
     fetch('/compare', {
         method: 'POST',
         body: formData
     })
-        .then(response => response.json())
-        .then(data => {
-            var downloadMessage = document.getElementById('download-message');
-            var downloadText = document.getElementById('download-text');
-            var downloadLink = document.getElementById('download-link');
-
-            downloadText.textContent = data.message;
-            downloadLink.href = data.downloadLink;
-            downloadLink.style.display = 'inline';
-            downloadMessage.style.display = 'block';
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
         })
-        .catch(error => console.error('Ошибка:', error));
+        .then(data => {
+            var messageSection = document.querySelector('.message-section');
+            var messageText = document.querySelector('.message-text');
+            var viewFileLink = document.querySelector('.view-file-link');
+            var downloadFileLink = document.querySelector('.download-file-link');
+            var uploadStatus = document.querySelector('.upload-status');
+
+
+            messageText.textContent = data.message;
+
+            if (uploadToServer) {
+                uploadStatus.style.display = 'block';
+            } else {
+                uploadStatus.style.display = 'none';
+            }
+
+            // Check if the "View file" link element exists and assign the URL for viewing the file
+            if (viewFileLink) {
+                viewFileLink.href = data.viewLink;
+                viewFileLink.style.display = 'inline';
+                viewFileLink.textContent = 'View file';
+            }
+
+            // Check if the "Download file" link element exists and assign the URL for downloading the file
+            if (downloadFileLink) {
+                downloadFileLink.href = data.downloadLink;
+                downloadFileLink.style.display = 'inline';
+                downloadFileLink.textContent = 'Download file';
+            }
+
+            // Display the message block with view and download options
+            messageSection.style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error processing your request. Please try again.');
+        });
 }
+
 
 function loadActualKeys() {
     fetch('/actual-keys')
@@ -75,25 +113,25 @@ function loadActualKeys() {
                     link.textContent = file.filename;
                     fileCell.appendChild(link);
                 } else {
-                    fileCell.textContent = 'Файл не найден';
+                    fileCell.textContent = 'File not found';
                 }
                 row.appendChild(fileCell);
 
                 list.appendChild(row);
             });
         })
-        .catch(error => console.error('Ошибка:', error));
+        .catch(error => console.error('Error:', error));
 }
 
-// Функция для загрузки списка директорий и файлов
+// Function to load directory list
 function loadDirectories() {
     fetch('/list-directories')
         .then(response => response.json())
         .then(data => {
             const list = document.getElementById('directory-list');
-            list.innerHTML = ''; // Очищаем список перед загрузкой
+            list.innerHTML = ''; // Clear list before loading
 
-            // Отображаем директории
+            // Display directories
             data.directories.forEach(dir => {
                 const folderDiv = document.createElement('div');
                 folderDiv.classList.add('folder');
@@ -112,7 +150,7 @@ function loadDirectories() {
                     folderDiv.classList.toggle('open');
                     fileListDiv.classList.toggle('open');
 
-                    // Загружаем файлы для выбранной папки
+                    // Load files for selected directory
                     if (fileListDiv.innerHTML === '') {
                         loadFilesForDirectory(dir, fileListDiv);
                     }
@@ -122,20 +160,20 @@ function loadDirectories() {
                 list.appendChild(fileListDiv);
             });
         })
-        .catch(error => console.error('Ошибка:', error));
+        .catch(error => console.error('Error:', error));
 }
 
-// Функция для загрузки файлов в директории
+// Function to load files in a directory
 function loadFilesForDirectory(directory, fileListDiv) {
     fetch(`/list-files?directory=${encodeURIComponent(directory)}`)
         .then(response => response.json())
         .then(data => {
-            fileListDiv.innerHTML = ''; // Очищаем список перед загрузкой
+            fileListDiv.innerHTML = ''; // Clear list before loading
 
             if (data.files.length === 0) {
                 const emptyMessage = document.createElement('div');
                 emptyMessage.classList.add('empty-message');
-                emptyMessage.textContent = 'Нет файлов';
+                emptyMessage.textContent = 'No files';
                 fileListDiv.appendChild(emptyMessage);
             } else {
                 data.files.forEach(file => {
@@ -146,16 +184,11 @@ function loadFilesForDirectory(directory, fileListDiv) {
                             <span class="icon"></span>
                             <a href="/view-file?directory=${encodeURIComponent(directory)}&file=${encodeURIComponent(file)}" target="_blank">${file}</a>
                         </div>
-                        <a href="/download-file?directory=${encodeURIComponent(directory)}&file=${encodeURIComponent(file)}" download>Скачать</a>
+                        <a href="/download-file?directory=${encodeURIComponent(directory)}&file=${encodeURIComponent(file)}" download>Download</a>
                     `;
                     fileListDiv.appendChild(fileDiv);
                 });
             }
         })
-        .catch(error => console.error('Ошибка при загрузке файлов:', error));
+        .catch(error => console.error('Error loading files:', error));
 }
-
-document.addEventListener('DOMContentLoaded', loadDirectories);
-
-
-document.addEventListener('DOMContentLoaded', loadActualKeys);
